@@ -20,7 +20,7 @@ public partial class MainWindow {
     
     private Gtk.ScrolledWindow GtkScrolledWindow;
     
-    private Gtk.TextView textview3;
+    private Gtk.TextView TextEditor;
     
     private Gtk.Statusbar statusbar1;
     
@@ -51,11 +51,11 @@ public partial class MainWindow {
         this.GtkScrolledWindow.Name = "GtkScrolledWindow";
         this.GtkScrolledWindow.ShadowType = ((Gtk.ShadowType)(1));
         // Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-        this.textview3 = new Gtk.TextView();
-        this.textview3.Buffer.Text = "<UserControl xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">\n\n\t<Grid x:Name=\"LayoutRoot\" Background=\"Black\">\n\t\t<Grid.ColumnDefinitions>\n\t\t\t<ColumnDefinition Width=\"200\"/>\n\t\t\t<ColumnDefinition Width=\"*\"/>\n\t\t</Grid.ColumnDefinitions>\n\t\t<Grid.RowDefinitions>\n\t\t\t<RowDefinition Height=\"48\"/>\n\t\t\t<RowDefinition Height=\"*\"/>\n\t\t</Grid.RowDefinitions>\n\t\t\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"0\" Grid.Column=\"0\" Grid.ColumnSpan=\"2\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Page Title Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"0\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Menu Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"1\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Main Area</TextBlock>\n\t\t</Border>\n\n\t</Grid>\n</UserControl>";
-        this.textview3.CanFocus = true;
-        this.textview3.Name = "textview3";
-        this.GtkScrolledWindow.Add(this.textview3);
+        this.TextEditor = new Gtk.TextView();
+        this.TextEditor.Buffer.Text = "<UserControl xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">\n\n\t<Grid x:Name=\"LayoutRoot\" Background=\"Black\">\n\t\t<Grid.ColumnDefinitions>\n\t\t\t<ColumnDefinition Width=\"200\"/>\n\t\t\t<ColumnDefinition Width=\"*\"/>\n\t\t</Grid.ColumnDefinitions>\n\t\t<Grid.RowDefinitions>\n\t\t\t<RowDefinition Height=\"48\"/>\n\t\t\t<RowDefinition Height=\"*\"/>\n\t\t</Grid.RowDefinitions>\n\t\t\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"0\" Grid.Column=\"0\" Grid.ColumnSpan=\"2\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Page Title Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"0\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Menu Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"1\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Main Area</TextBlock>\n\t\t</Border>\n\n\t</Grid>\n</UserControl>";
+        this.TextEditor.CanFocus = true;
+        this.TextEditor.Name = "TextEditor";
+        this.GtkScrolledWindow.Add(this.TextEditor);
         this.vpaned1.Add(this.GtkScrolledWindow);
         this.vbox1.Add(this.vpaned1);
         Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
@@ -77,6 +77,6 @@ public partial class MainWindow {
         this.DefaultHeight = 674;
         this.Show();
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
-        this.textview3.KeyReleaseEvent += new Gtk.KeyReleaseEventHandler(this.OnTextview3KeyReleaseEvent);
+        this.TextEditor.KeyReleaseEvent += new Gtk.KeyReleaseEventHandler(this.OnTextEditorKeyReleaseEvent);
     }
 }

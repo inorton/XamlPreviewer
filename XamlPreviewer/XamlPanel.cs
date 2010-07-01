@@ -26,7 +26,9 @@ namespace XamlPreviewer
 		
 		public void ReloadXaml (string xaml)
 		{
-			MoonHost.LoadXaml (xaml);
+			lock ( MoonHost ){
+				MoonHost.LoadXaml (xaml);
+			}
 		}
 		
 		public event ChangedEventHanlder Changed;

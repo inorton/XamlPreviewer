@@ -8,14 +8,17 @@ using Moonlight.Gtk;
 public partial class MainWindow : Gtk.Window
 {
 	private DateTime last_change;
-	
+
+	private string src = String.Empty;
+
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
 		
 		last_change = System.DateTime.Now;
+
 		
-		xamlpanel2.ReloadXaml (textview3.Buffer.Text);
+		xamlpanel2.ReloadXaml (TextEditor.Buffer.Text);
 	}
 
 	protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
@@ -23,25 +26,41 @@ public partial class MainWindow : Gtk.Window
 		Gtk.Application.Quit ();
 		a.RetVal = true;
 	}
-	protected virtual void OnTextview3KeyReleaseEvent (object o, Gtk.KeyReleaseEventArgs args)
+
+
+	protected virtual void OnTextEditorKeyReleaseEvent (object o, Gtk.KeyReleaseEventArgs args)
 	{
-		string src = textview3.Buffer.Text;
+		UpdatePreview();
+	}
+
+
+	public void UpdatePreview ()
+	{
+
+		string tmp = TextEditor.Buffer.Text;
+		statusbar1.Push (0, "Updating...");
 		
-		object co = XamlReader.Load (src);
-		
-		Console.Error.WriteLine (co.GetType ().ToString ());
-		
-		if (System.DateTime.Now.Subtract (last_change).TotalSeconds > 2) {
-			try {
-				xamlpanel2.ReloadXaml (src);
-				statusbar1.Push (0, "ok");
-			} catch (System.Windows.Markup.XamlParseException ex) {
-				statusbar1.Push (0, ex.Message);
-			}
-		
+		if (src.Equals (tmp)){
+			return;
 		}
-		last_change = System.DateTime.Now;
+			
+		src = tmp;
 		
+		Console.Error.WriteLine(src);
+		
+		try {
+			XamlReader.Load (src);
+			xamlpanel2.ReloadXaml (src);
+			statusbar1.Push (0, "ok");
+		} catch (System.Windows.Markup.XamlParseException ex) {
+			statusbar1.Push (0, ex.Message);
+		}
+
+	}
+
+	public override string ToString ()
+	{
+		return src;
 	}
 	
 	

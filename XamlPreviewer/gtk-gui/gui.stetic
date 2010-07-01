@@ -5,10 +5,10 @@
     <target-gtk-version>2.6</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
     <widget-library name="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
     <widget-library name="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="glade-sharp, Version=2.6.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="932 674">
     <property name="MemberName" />
@@ -38,7 +38,7 @@
                 <property name="MemberName" />
                 <property name="ShadowType">In</property>
                 <child>
-                  <widget class="Gtk.TextView" id="textview3">
+                  <widget class="Gtk.TextView" id="TextEditor">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
@@ -69,7 +69,7 @@
 
 	&lt;/Grid&gt;
 &lt;/UserControl&gt;</property>
-                    <signal name="KeyReleaseEvent" handler="OnTextview3KeyReleaseEvent" />
+                    <signal name="KeyReleaseEvent" handler="OnTextEditorKeyReleaseEvent" />
                   </widget>
                 </child>
               </widget>
