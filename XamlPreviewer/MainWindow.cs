@@ -2,12 +2,10 @@ using System;
 
 using System.Windows.Controls;
 
-using System.Windows.Markup;
 using Moonlight.Gtk;
 
 public partial class MainWindow : Gtk.Window
 {
-	private DateTime last_change;
 
 	private string src = String.Empty;
 
@@ -15,7 +13,6 @@ public partial class MainWindow : Gtk.Window
 	{
 		Build ();
 		
-		last_change = System.DateTime.Now;
 
 		
 		xamlpanel2.ReloadXaml (TextEditor.Buffer.Text);
@@ -49,7 +46,7 @@ public partial class MainWindow : Gtk.Window
 		Console.Error.WriteLine(src);
 		
 		try {
-			XamlReader.Load (src);
+
 			xamlpanel2.ReloadXaml (src);
 			statusbar1.Push (0, "ok");
 		} catch (System.Windows.Markup.XamlParseException ex) {

@@ -2,6 +2,9 @@
 using System;
 using Moonlight.Gtk;
 
+using System.Windows.Controls;
+using System.Windows.Markup;
+
 namespace XamlPreviewer
 {
 	
@@ -12,6 +15,7 @@ namespace XamlPreviewer
 	{
 
 		public MoonlightHost MoonHost = null;
+		Border outer;
 		
 		public string Xaml = null;
 		
@@ -20,14 +24,26 @@ namespace XamlPreviewer
 			this.Build ();
 			MoonHost = new MoonlightHost ();
 		
+			Border cont = new Border ();
+			cont.Margin = new System.Windows.Thickness (8.0);
+			outer = cont;
+			
+			MoonHost.Content = cont;
+			
 			this.Add (MoonHost);
 			this.ShowAll ();
 		}
 		
 		public void ReloadXaml (string xaml)
 		{
-			lock ( MoonHost ){
-				MoonHost.LoadXaml (xaml);
+			lock (MoonHost) {
+				object o = XamlReader.Load (xaml);
+				
+				if (o is System.Windows.UIElement ) {
+					outer.Child = (System.Windows.UIElement)o;
+				}
+				
+				// MoonHost.LoadXaml (xaml);
 			}
 		}
 		
