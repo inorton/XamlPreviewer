@@ -16,7 +16,13 @@ public partial class MainWindow {
     
     private Gtk.VPaned vpaned1;
     
+    private Gtk.HBox hbox1;
+    
+    private Gtk.ScrolledWindow scrolledwindow1;
+    
     private XamlPreviewer.XamlPanel xamlpanel2;
+    
+    private Gtk.VScale vscale1;
     
     private Gtk.ScrolledWindow GtkScrolledWindow;
     
@@ -40,35 +46,68 @@ public partial class MainWindow {
         this.vpaned1.Name = "vpaned1";
         this.vpaned1.Position = 250;
         // Container child vpaned1.Gtk.Paned+PanedChild
+        this.hbox1 = new Gtk.HBox();
+        this.hbox1.Name = "hbox1";
+        this.hbox1.Spacing = 6;
+        // Container child hbox1.Gtk.Box+BoxChild
+        this.scrolledwindow1 = new Gtk.ScrolledWindow();
+        this.scrolledwindow1.CanFocus = true;
+        this.scrolledwindow1.Name = "scrolledwindow1";
+        this.scrolledwindow1.ShadowType = ((Gtk.ShadowType)(1));
+        // Container child scrolledwindow1.Gtk.Container+ContainerChild
+        Gtk.Viewport w1 = new Gtk.Viewport();
+        w1.ShadowType = ((Gtk.ShadowType)(0));
+        // Container child GtkViewport.Gtk.Container+ContainerChild
         this.xamlpanel2 = new XamlPreviewer.XamlPanel();
         this.xamlpanel2.Events = ((Gdk.EventMask)(256));
         this.xamlpanel2.Name = "xamlpanel2";
-        this.vpaned1.Add(this.xamlpanel2);
-        Gtk.Paned.PanedChild w1 = ((Gtk.Paned.PanedChild)(this.vpaned1[this.xamlpanel2]));
-        w1.Resize = false;
+        w1.Add(this.xamlpanel2);
+        this.scrolledwindow1.Add(w1);
+        this.hbox1.Add(this.scrolledwindow1);
+        Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(this.hbox1[this.scrolledwindow1]));
+        w4.Position = 0;
+        // Container child hbox1.Gtk.Box+BoxChild
+        this.vscale1 = new Gtk.VScale(null);
+        this.vscale1.CanFocus = true;
+        this.vscale1.Name = "vscale1";
+        this.vscale1.Adjustment.Lower = 5;
+        this.vscale1.Adjustment.Upper = 200;
+        this.vscale1.Adjustment.PageIncrement = 5;
+        this.vscale1.Adjustment.StepIncrement = 1;
+        this.vscale1.Adjustment.Value = 75;
+        this.vscale1.DrawValue = true;
+        this.vscale1.Digits = 0;
+        this.vscale1.ValuePos = ((Gtk.PositionType)(2));
+        this.hbox1.Add(this.vscale1);
+        Gtk.Box.BoxChild w5 = ((Gtk.Box.BoxChild)(this.hbox1[this.vscale1]));
+        w5.Position = 1;
+        w5.Expand = false;
+        this.vpaned1.Add(this.hbox1);
+        Gtk.Paned.PanedChild w6 = ((Gtk.Paned.PanedChild)(this.vpaned1[this.hbox1]));
+        w6.Resize = false;
         // Container child vpaned1.Gtk.Paned+PanedChild
         this.GtkScrolledWindow = new Gtk.ScrolledWindow();
         this.GtkScrolledWindow.Name = "GtkScrolledWindow";
         this.GtkScrolledWindow.ShadowType = ((Gtk.ShadowType)(1));
         // Container child GtkScrolledWindow.Gtk.Container+ContainerChild
         this.TextEditor = new Gtk.TextView();
-        this.TextEditor.Buffer.Text = "<UserControl xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">\n\n\t<Grid x:Name=\"LayoutRoot\" Background=\"Black\">\n\t\t<Grid.ColumnDefinitions>\n\t\t\t<ColumnDefinition Width=\"200\"/>\n\t\t\t<ColumnDefinition Width=\"*\"/>\n\t\t</Grid.ColumnDefinitions>\n\t\t<Grid.RowDefinitions>\n\t\t\t<RowDefinition Height=\"48\"/>\n\t\t\t<RowDefinition Height=\"*\"/>\n\t\t</Grid.RowDefinitions>\n\t\t\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"0\" Grid.Column=\"0\" Grid.ColumnSpan=\"2\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Page Title Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"0\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Menu Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"1\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Main Area</TextBlock>\n\t\t</Border>\n\n\t</Grid>\n</UserControl>";
+        this.TextEditor.Buffer.Text = "<UserControl xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">\n\n\t<Grid x:Name=\"LayoutRoot\" Background=\"Black\">\n\t\t<Grid.ColumnDefinitions>\n\t\t\t<ColumnDefinition Width=\"200\"/>\n\t\t\t<ColumnDefinition Width=\"*\"/>\n\t\t</Grid.ColumnDefinitions>\n\t\t<Grid.RowDefinitions>\n\t\t\t<RowDefinition Height=\"48\"/>\n\t\t\t<RowDefinition Height=\"*\"/>\n\t\t</Grid.RowDefinitions>\n\t\t\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"0\" Grid.Column=\"0\" Grid.ColumnSpan=\"2\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Page Title Area</TextBlock>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"0\" CornerRadius=\"5\">\n\t\t\t<StackPanel Margin=\"2\">\n        \t        \t<Button Content=\"Hello\"/>\n\t\t\t\t<Button Content=\"Moon!\"/>\n\t\t\t</StackPanel>\n\t\t</Border>\n\n\t\t<Border Margin=\"3\" BorderBrush=\"White\" BorderThickness=\"3\" Grid.Row=\"1\" Grid.Column=\"1\" CornerRadius=\"5\">\n                \t<TextBlock Foreground=\"White\">Main Area</TextBlock>\n\t\t</Border>\n\n\t</Grid>\n</UserControl>";
         this.TextEditor.CanFocus = true;
         this.TextEditor.Name = "TextEditor";
         this.GtkScrolledWindow.Add(this.TextEditor);
         this.vpaned1.Add(this.GtkScrolledWindow);
         this.vbox1.Add(this.vpaned1);
-        Gtk.Box.BoxChild w4 = ((Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
-        w4.Position = 0;
+        Gtk.Box.BoxChild w9 = ((Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
+        w9.Position = 0;
         // Container child vbox1.Gtk.Box+BoxChild
         this.statusbar1 = new Gtk.Statusbar();
         this.statusbar1.Name = "statusbar1";
         this.statusbar1.Spacing = 6;
         this.vbox1.Add(this.statusbar1);
-        Gtk.Box.BoxChild w5 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
-        w5.Position = 1;
-        w5.Expand = false;
-        w5.Fill = false;
+        Gtk.Box.BoxChild w10 = ((Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+        w10.Position = 1;
+        w10.Expand = false;
+        w10.Fill = false;
         this.Add(this.vbox1);
         if ((this.Child != null)) {
             this.Child.ShowAll();
@@ -77,6 +116,7 @@ public partial class MainWindow {
         this.DefaultHeight = 674;
         this.Show();
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
+        this.vscale1.ChangeValue += new Gtk.ChangeValueHandler(this.OnVscale1ChangeValue);
         this.TextEditor.KeyReleaseEvent += new Gtk.KeyReleaseEventHandler(this.OnTextEditorKeyReleaseEvent);
     }
 }

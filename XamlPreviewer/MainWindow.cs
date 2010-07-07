@@ -60,5 +60,11 @@ public partial class MainWindow : Gtk.Window
 		return src;
 	}
 	
+	protected virtual void OnVscale1ChangeValue (object o, Gtk.ChangeValueArgs args)
+	{
+		xamlpanel2.SetScale( vscale1.Value/100.0, vscale1.Value/100.0 );
+	}
+	
+	
 	
 }

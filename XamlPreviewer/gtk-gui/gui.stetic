@@ -2,12 +2,12 @@
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
-    <target-gtk-version>2.6</target-gtk-version>
+    <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
     <widget-library name="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
     <widget-library name="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="glade-sharp, Version=2.6.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="932 674">
@@ -25,9 +25,52 @@
             <property name="CanFocus">True</property>
             <property name="Position">250</property>
             <child>
-              <widget class="XamlPreviewer.XamlPanel" id="xamlpanel2">
+              <widget class="Gtk.HBox" id="hbox1">
                 <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
+                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShadowType">In</property>
+                    <child>
+                      <widget class="Gtk.Viewport" id="GtkViewport">
+                        <property name="MemberName" />
+                        <property name="ShadowType">None</property>
+                        <child>
+                          <widget class="XamlPreviewer.XamlPanel" id="xamlpanel2">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.VScale" id="vscale1">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Lower">5</property>
+                    <property name="Upper">200</property>
+                    <property name="PageIncrement">5</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="Value">75</property>
+                    <property name="DrawValue">True</property>
+                    <property name="Digits">0</property>
+                    <property name="ValuePos">Top</property>
+                    <signal name="ChangeValue" handler="OnVscale1ChangeValue" />
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">False</property>
+                    <property name="Expand">False</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
                 <property name="Resize">False</property>
@@ -60,7 +103,10 @@
 		&lt;/Border&gt;
 
 		&lt;Border Margin="3" BorderBrush="White" BorderThickness="3" Grid.Row="1" Grid.Column="0" CornerRadius="5"&gt;
-                	&lt;TextBlock Foreground="White"&gt;Menu Area&lt;/TextBlock&gt;
+			&lt;StackPanel Margin="2"&gt;
+        	        	&lt;Button Content="Hello"/&gt;
+				&lt;Button Content="Moon!"/&gt;
+			&lt;/StackPanel&gt;
 		&lt;/Border&gt;
 
 		&lt;Border Margin="3" BorderBrush="White" BorderThickness="3" Grid.Row="1" Grid.Column="1" CornerRadius="5"&gt;
