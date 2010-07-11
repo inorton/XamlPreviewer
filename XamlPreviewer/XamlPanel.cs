@@ -24,22 +24,24 @@ namespace XamlPreviewer
 			this.Build ();
 			MoonHost = new MoonlightHost ();
 		
-			
+			Grid align = new Grid();
+		
 			Border cont = new Border ();
-			cont.Width = 750.0;
-			cont.Height = 420.0;
+			
 			cont.Margin = new System.Windows.Thickness (8.0);
-			cont.Padding = new System.Windows.Thickness (5.0);
+			cont.Padding = new System.Windows.Thickness (0.0);
 			cont.CornerRadius = new System.Windows.CornerRadius ( 5.0 );
-			cont.BorderThickness = new System.Windows.Thickness( 2.5 );
+			cont.BorderThickness = new System.Windows.Thickness( 5.5 );
 			cont.BorderBrush = new System.Windows.Media.SolidColorBrush( System.Windows.Media.Colors.DarkGray );
 			outer = cont;
 			
 			cont.RenderTransform = new System.Windows.Media.ScaleTransform(){ ScaleX = 0.75, ScaleY = 0.75 };
 			
-			MoonHost.Content = cont;
+			align.Children.Add( outer );
 			
-			this.Add (MoonHost);
+			MoonHost.Content = align;
+			this.Remove( frame1 );
+			this.Add( MoonHost );
 			this.ShowAll ();
 		}
 		
@@ -70,5 +72,13 @@ namespace XamlPreviewer
 			if (Changed != null)
 				Changed (this, a);
 		}
+		
+		protected virtual void OnRealized (object sender, System.EventArgs e)
+		{
+			
+		}
+		
+		
+		
 	}
 }

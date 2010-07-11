@@ -13,15 +13,36 @@ namespace XamlPreviewer {
     
     public partial class XamlPanel {
         
+        private Gtk.Frame frame1;
+        
+        private Gtk.Alignment GtkAlignment;
+        
+        private Gtk.Label GtkLabel;
+        
         protected virtual void Build() {
             Stetic.Gui.Initialize(this);
             // Widget XamlPreviewer.XamlPanel
             Stetic.BinContainer.Attach(this);
             this.Name = "XamlPreviewer.XamlPanel";
+            // Container child XamlPreviewer.XamlPanel.Gtk.Container+ContainerChild
+            this.frame1 = new Gtk.Frame();
+            this.frame1.Name = "frame1";
+            this.frame1.ShadowType = ((Gtk.ShadowType)(0));
+            // Container child frame1.Gtk.Container+ContainerChild
+            this.GtkAlignment = new Gtk.Alignment(0F, 2.428613E-17F, 1F, 1F);
+            this.GtkAlignment.Name = "GtkAlignment";
+            this.frame1.Add(this.GtkAlignment);
+            this.GtkLabel = new Gtk.Label();
+            this.GtkLabel.Name = "GtkLabel";
+            this.GtkLabel.LabelProp = Mono.Unix.Catalog.GetString("<b>XamlPanel</b>");
+            this.GtkLabel.UseMarkup = true;
+            this.frame1.LabelWidget = this.GtkLabel;
+            this.Add(this.frame1);
             if ((this.Child != null)) {
                 this.Child.ShowAll();
             }
             this.Hide();
+            this.Realized += new System.EventHandler(this.OnRealized);
         }
     }
 }

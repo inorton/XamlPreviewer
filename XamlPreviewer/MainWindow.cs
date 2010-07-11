@@ -15,8 +15,12 @@ public partial class MainWindow : Gtk.Window
 		Build ();
 		
 
-		
 		xamlpanel2.ReloadXaml (TextEditor.Buffer.Text);
+		
+		Gtk.Adjustment a1 = new Gtk.Adjustment( 50.0, 0, 100.0, 1.0, 10.0, 5.0 );
+		Gtk.Adjustment a2 = new Gtk.Adjustment( 50.0, 0, 100.0, 1.0, 10.0, 5.0 );
+		
+		xamlpanel2.SetScrollAdjustments( a1, a2 );
 	}
 
 	protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
@@ -97,6 +101,11 @@ public partial class MainWindow : Gtk.Window
 		fc.Visible = false;
 		fc.Dispose();
 	}
+	
+	protected virtual void OnGtkScrolledWindow1Realized (object sender, System.EventArgs e)
+	{
+	}
+	
 	
 	
 	

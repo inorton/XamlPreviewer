@@ -10,7 +10,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="932 674">
+  <widget class="Gtk.Window" id="MainWindow" design-size="1135 915">
     <action-group name="Default">
       <action id="openAction">
         <property name="Type">Action</property>
@@ -38,6 +38,7 @@
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
             <property name="ButtonStyle">Icons</property>
+            <property name="IconSize">LargeToolbar</property>
             <node name="__gtksharp_87_Stetic_Editor_ActionToolbar" type="Toolbar">
               <node type="Toolitem" action="openAction" />
               <node type="Toolitem" action="saveAction" />
@@ -60,9 +61,8 @@
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+                  <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
                     <property name="ShadowType">In</property>
                     <child>
                       <widget class="Gtk.Viewport" id="GtkViewport">
@@ -71,7 +71,10 @@
                         <child>
                           <widget class="XamlPreviewer.XamlPanel" id="xamlpanel2">
                             <property name="MemberName" />
+                            <property name="WidthRequest">1100</property>
+                            <property name="HeightRequest">720</property>
                             <property name="Events">ButtonPressMask</property>
+                            <property name="ShowScrollbars">True</property>
                           </widget>
                         </child>
                       </widget>
@@ -85,7 +88,9 @@
                 <child>
                   <widget class="Gtk.VScale" id="vscale1">
                     <property name="MemberName" />
+                    <property name="WidthRequest">36</property>
                     <property name="CanFocus">True</property>
+                    <property name="Inverted">True</property>
                     <property name="Lower">5</property>
                     <property name="Upper">200</property>
                     <property name="PageIncrement">5</property>
@@ -93,13 +98,14 @@
                     <property name="Value">75</property>
                     <property name="DrawValue">True</property>
                     <property name="Digits">0</property>
-                    <property name="ValuePos">Top</property>
+                    <property name="ValuePos">Bottom</property>
                     <signal name="ChangeValue" handler="OnVscale1ChangeValue" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
                     <property name="AutoSize">False</property>
                     <property name="Expand">False</property>
+                    <property name="Padding">5</property>
                   </packing>
                 </child>
               </widget>
@@ -181,8 +187,32 @@
   <widget class="Gtk.Bin" id="XamlPreviewer.XamlPanel" design-size="678 433">
     <property name="MemberName" />
     <property name="Visible">False</property>
+    <signal name="Realized" handler="OnRealized" />
     <child>
-      <placeholder />
+      <widget class="Gtk.Frame" id="frame1">
+        <property name="MemberName" />
+        <property name="ShadowType">None</property>
+        <child>
+          <widget class="Gtk.Alignment" id="GtkAlignment">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="Yalign">2.428613E-17</property>
+            <child>
+              <placeholder />
+            </child>
+          </widget>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="GtkLabel">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;XamlPanel&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="type">label_item</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
 </stetic-interface>

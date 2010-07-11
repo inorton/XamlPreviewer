@@ -26,7 +26,7 @@ public partial class MainWindow {
     
     private Gtk.HBox hbox1;
     
-    private Gtk.ScrolledWindow scrolledwindow1;
+    private Gtk.ScrolledWindow GtkScrolledWindow1;
     
     private XamlPreviewer.XamlPanel xamlpanel2;
     
@@ -62,6 +62,7 @@ public partial class MainWindow {
         this.toolbar1.Name = "toolbar1";
         this.toolbar1.ShowArrow = false;
         this.toolbar1.ToolbarStyle = ((Gtk.ToolbarStyle)(0));
+        this.toolbar1.IconSize = ((Gtk.IconSize)(3));
         this.vbox1.Add(this.toolbar1);
         Gtk.Box.BoxChild w2 = ((Gtk.Box.BoxChild)(this.vbox1[this.toolbar1]));
         w2.Position = 0;
@@ -77,26 +78,29 @@ public partial class MainWindow {
         this.hbox1.Name = "hbox1";
         this.hbox1.Spacing = 6;
         // Container child hbox1.Gtk.Box+BoxChild
-        this.scrolledwindow1 = new Gtk.ScrolledWindow();
-        this.scrolledwindow1.CanFocus = true;
-        this.scrolledwindow1.Name = "scrolledwindow1";
-        this.scrolledwindow1.ShadowType = ((Gtk.ShadowType)(1));
-        // Container child scrolledwindow1.Gtk.Container+ContainerChild
+        this.GtkScrolledWindow1 = new Gtk.ScrolledWindow();
+        this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
+        this.GtkScrolledWindow1.ShadowType = ((Gtk.ShadowType)(1));
+        // Container child GtkScrolledWindow1.Gtk.Container+ContainerChild
         Gtk.Viewport w3 = new Gtk.Viewport();
         w3.ShadowType = ((Gtk.ShadowType)(0));
         // Container child GtkViewport.Gtk.Container+ContainerChild
         this.xamlpanel2 = new XamlPreviewer.XamlPanel();
+        this.xamlpanel2.WidthRequest = 1100;
+        this.xamlpanel2.HeightRequest = 720;
         this.xamlpanel2.Events = ((Gdk.EventMask)(256));
         this.xamlpanel2.Name = "xamlpanel2";
         w3.Add(this.xamlpanel2);
-        this.scrolledwindow1.Add(w3);
-        this.hbox1.Add(this.scrolledwindow1);
-        Gtk.Box.BoxChild w6 = ((Gtk.Box.BoxChild)(this.hbox1[this.scrolledwindow1]));
+        this.GtkScrolledWindow1.Add(w3);
+        this.hbox1.Add(this.GtkScrolledWindow1);
+        Gtk.Box.BoxChild w6 = ((Gtk.Box.BoxChild)(this.hbox1[this.GtkScrolledWindow1]));
         w6.Position = 0;
         // Container child hbox1.Gtk.Box+BoxChild
         this.vscale1 = new Gtk.VScale(null);
+        this.vscale1.WidthRequest = 36;
         this.vscale1.CanFocus = true;
         this.vscale1.Name = "vscale1";
+        this.vscale1.Inverted = true;
         this.vscale1.Adjustment.Lower = 5;
         this.vscale1.Adjustment.Upper = 200;
         this.vscale1.Adjustment.PageIncrement = 5;
@@ -104,11 +108,12 @@ public partial class MainWindow {
         this.vscale1.Adjustment.Value = 75;
         this.vscale1.DrawValue = true;
         this.vscale1.Digits = 0;
-        this.vscale1.ValuePos = ((Gtk.PositionType)(2));
+        this.vscale1.ValuePos = ((Gtk.PositionType)(3));
         this.hbox1.Add(this.vscale1);
         Gtk.Box.BoxChild w7 = ((Gtk.Box.BoxChild)(this.hbox1[this.vscale1]));
         w7.Position = 1;
         w7.Expand = false;
+        w7.Padding = ((uint)(5));
         this.vpaned1.Add(this.hbox1);
         Gtk.Paned.PanedChild w8 = ((Gtk.Paned.PanedChild)(this.vpaned1[this.hbox1]));
         w8.Resize = false;
@@ -139,8 +144,8 @@ public partial class MainWindow {
         if ((this.Child != null)) {
             this.Child.ShowAll();
         }
-        this.DefaultWidth = 932;
-        this.DefaultHeight = 674;
+        this.DefaultWidth = 1135;
+        this.DefaultHeight = 915;
         this.Show();
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
         this.openAction.Activated += new System.EventHandler(this.OnOpenActionActivated);
