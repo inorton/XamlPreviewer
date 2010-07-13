@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using GtkSourceView;
 
 using System.Windows.Controls;
 
@@ -9,16 +10,28 @@ public partial class MainWindow : Gtk.Window
 {
 
 	private string src = String.Empty;
+	private SourceBuffer sb;
+	private SourceView sv;
+	private Gtk.ScrolledWindow sw;
 
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
 		
-
-		xamlpanel2.ReloadXaml (TextEditor.Buffer.Text);
+		sb = new SourceBuffer (SourceLanguageManager.Default.GetLanguage ("xml"));
+		sb.HighlightSyntax = true;
+		sb.HighlightMatchingBrackets = true;
 		
-		Gtk.Adjustment a1 = new Gtk.Adjustment( 50.0, 0, 100.0, 1.0, 10.0, 5.0 );
-		Gtk.Adjustment a2 = new Gtk.Adjustment( 50.0, 0, 100.0, 1.0, 10.0, 5.0 );
+		sv = new SourceView (sb);
+		sw = new Gtk.ScrolledWindow ();
+		sw.Add (sv);
+
+		Gtk.Adjustment a1 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
+		Gtk.Adjustment a2 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
+	
+		
+		vpaned1.Add (sw);
+		vpaned1.ShowAll ();
 		
 		xamlpanel2.SetScrollAdjustments( a1, a2 );
 	}
@@ -39,7 +52,7 @@ public partial class MainWindow : Gtk.Window
 	public void UpdatePreview ()
 	{
 
-		string tmp = TextEditor.Buffer.Text;
+		string tmp = sb.Text;
 		statusbar1.Push (0, "Updating...");
 		
 		if (src.Equals (tmp)){
@@ -77,7 +90,7 @@ public partial class MainWindow : Gtk.Window
 		if ( x == (int)Gtk.ResponseType.Ok ){
 			if ( fc.Filename != null ){
 				StreamReader sr = new StreamReader( fc.Filename );
-				TextEditor.Buffer.Text = sr.ReadToEnd();
+				sb.Text = sr.ReadToEnd();
 				sr.Close();
 				UpdatePreview();
 			}
@@ -93,7 +106,7 @@ public partial class MainWindow : Gtk.Window
 		if ( x == (int)Gtk.ResponseType.Ok ){
 			if ( fc.Filename != null ){
 				StreamWriter sw = new StreamWriter(fc.Filename);
-				sw.Write( TextEditor.Buffer.Text );
+				sw.Write( sb.Text );
 				sw.Close();
 				statusbar1.Push(0,"Saved..");
 			}
