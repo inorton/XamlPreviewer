@@ -24,9 +24,11 @@ namespace XamlPreviewer
 			this.Build ();
 			MoonHost = new MoonlightHost ();
 		
-			Grid align = new Grid();
+			Grid align = new Grid ();
+			align.Background = new System.Windows.Media.SolidColorBrush (System.Windows.Media.Colors.Gray);
 		
 			Border cont = new Border ();
+			cont.Background = new System.Windows.Media.SolidColorBrush (System.Windows.Media.Colors.White);
 			
 			cont.Margin = new System.Windows.Thickness (8.0);
 			cont.Padding = new System.Windows.Thickness (0.0);

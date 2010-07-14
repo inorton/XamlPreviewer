@@ -7,6 +7,8 @@ public partial class MainWindow
 
 	private global::Gtk.Action openAction;
 
+	private global::Gtk.Action saveAsAction;
+
 	private global::Gtk.Action saveAction;
 
 	private global::Gtk.VBox vbox1;
@@ -23,6 +25,10 @@ public partial class MainWindow
 
 	private global::Gtk.VScale vscale1;
 
+	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+
+	private global::Gtk.TextView TextEditor;
+
 	private global::Gtk.Statusbar statusbar1;
 
 	protected virtual void Build ()
@@ -33,6 +39,8 @@ public partial class MainWindow
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
 		this.openAction = new global::Gtk.Action ("openAction", null, null, "gtk-open");
 		w1.Add (this.openAction, null);
+		this.saveAsAction = new global::Gtk.Action ("saveAsAction", null, null, "gtk-save-as");
+		w1.Add (this.saveAsAction, null);
 		this.saveAction = new global::Gtk.Action ("saveAction", null, null, "gtk-save");
 		w1.Add (this.saveAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
@@ -45,7 +53,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='saveAction' action='saveAction'/></toolbar></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='openAction' action='openAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;
@@ -105,18 +113,29 @@ public partial class MainWindow
 		this.vpaned1.Add (this.hbox1);
 		global::Gtk.Paned.PanedChild w8 = ((global::Gtk.Paned.PanedChild)(this.vpaned1[this.hbox1]));
 		w8.Resize = false;
+		// Container child vpaned1.Gtk.Paned+PanedChild
+		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+		this.TextEditor = new global::Gtk.TextView ();
+		this.TextEditor.CanFocus = true;
+		this.TextEditor.Name = "TextEditor";
+		this.TextEditor.Editable = false;
+		this.GtkScrolledWindow.Add (this.TextEditor);
+		this.vpaned1.Add (this.GtkScrolledWindow);
 		this.vbox1.Add (this.vpaned1);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
-		w9.Position = 1;
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
+		w11.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
-		w10.Position = 2;
-		w10.Expand = false;
-		w10.Fill = false;
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+		w12.Position = 2;
+		w12.Expand = false;
+		w12.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -126,7 +145,9 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.openAction.Activated += new global::System.EventHandler (this.OnOpenActionActivated);
+		this.saveAsAction.Activated += new global::System.EventHandler (this.OnSaveAsActionActivated);
 		this.saveAction.Activated += new global::System.EventHandler (this.OnSaveActionActivated);
 		this.vscale1.ChangeValue += new global::Gtk.ChangeValueHandler (this.OnVscale1ChangeValue);
+		this.TextEditor.KeyReleaseEvent += new global::Gtk.KeyReleaseEventHandler (this.OnTextEditorKeyReleaseEvent);
 	}
 }

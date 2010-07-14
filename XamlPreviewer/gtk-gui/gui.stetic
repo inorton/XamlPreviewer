@@ -18,6 +18,12 @@
         <property name="StockId">gtk-open</property>
         <signal name="Activated" handler="OnOpenActionActivated" />
       </action>
+      <action id="saveAsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save-as</property>
+        <signal name="Activated" handler="OnSaveAsActionActivated" />
+      </action>
       <action id="saveAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
@@ -42,6 +48,7 @@
             <node name="__gtksharp_87_Stetic_Editor_ActionToolbar" type="Toolbar">
               <node type="Toolitem" action="openAction" />
               <node type="Toolitem" action="saveAction" />
+              <node type="Toolitem" action="saveAsAction" />
             </node>
           </widget>
           <packing>
@@ -114,7 +121,20 @@
               </packing>
             </child>
             <child>
-              <placeholder />
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                <property name="MemberName" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TextView" id="TextEditor">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                    <property name="Editable">False</property>
+                    <property name="Text" translatable="yes" />
+                    <signal name="KeyReleaseEvent" handler="OnTextEditorKeyReleaseEvent" />
+                  </widget>
+                </child>
+              </widget>
             </child>
           </widget>
           <packing>

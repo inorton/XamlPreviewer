@@ -13,6 +13,8 @@ public partial class MainWindow : Gtk.Window
 	private SourceBuffer sb;
 	private SourceView sv;
 	private Gtk.ScrolledWindow sw;
+	
+	private string filename = String.Empty;
 
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
@@ -29,8 +31,8 @@ public partial class MainWindow : Gtk.Window
 		Gtk.Adjustment a1 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
 		Gtk.Adjustment a2 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
 	
-		
-		vpaned1.Add (sw);
+		vpaned1.Child2.Destroy ();
+		vpaned1.Add2 (sw);
 		vpaned1.ShowAll ();
 		
 		xamlpanel2.SetScrollAdjustments( a1, a2 );
@@ -85,11 +87,12 @@ public partial class MainWindow : Gtk.Window
 	
 	protected virtual void OnOpenActionActivated (object sender, System.EventArgs e)
 	{
-		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Open File", this, Gtk.FileChooserAction.Open, "Cancel", Gtk.ResponseType.Cancel, "Open", Gtk.ResponseType.Ok );
-		int x = fc.Run();
-		if ( x == (int)Gtk.ResponseType.Ok ){
-			if ( fc.Filename != null ){
-				StreamReader sr = new StreamReader( fc.Filename );
+		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog ("Open File", this, Gtk.FileChooserAction.Open, "Cancel", Gtk.ResponseType.Cancel, "Open", Gtk.ResponseType.Ok);
+		int x = fc.Run ();
+		if (x == (int)Gtk.ResponseType.Ok) {
+			if (fc.Filename != null) {
+				StreamReader sr = new StreamReader (fc.Filename);
+				filename = fc.Filename;
 				sb.Text = sr.ReadToEnd();
 				sr.Close();
 				UpdatePreview();
@@ -99,13 +102,14 @@ public partial class MainWindow : Gtk.Window
 		fc.Dispose();	
 	}
 	
-	protected virtual void OnSaveActionActivated (object sender, System.EventArgs e)
+	protected virtual void OnSaveAsActionActivated (object sender, System.EventArgs e)
 	{
-		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Save Xaml File", this,  Gtk.FileChooserAction.Save, "Cancel", Gtk.ResponseType.Cancel, "Save", Gtk.ResponseType.Ok );
-		int x = fc.Run();
-		if ( x == (int)Gtk.ResponseType.Ok ){
-			if ( fc.Filename != null ){
-				StreamWriter sw = new StreamWriter(fc.Filename);
+		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog ("Save Xaml File", this, Gtk.FileChooserAction.Save, "Cancel", Gtk.ResponseType.Cancel, "Save", Gtk.ResponseType.Ok);
+		int x = fc.Run ();
+		if (x == (int)Gtk.ResponseType.Ok) {
+			if (fc.Filename != null) {
+				StreamWriter sw = new StreamWriter (fc.Filename);
+				filename = fc.Filename;
 				sw.Write( sb.Text );
 				sw.Close();
 				statusbar1.Push(0,"Saved..");
@@ -115,9 +119,28 @@ public partial class MainWindow : Gtk.Window
 		fc.Dispose();
 	}
 	
+	
+	
 	protected virtual void OnGtkScrolledWindow1Realized (object sender, System.EventArgs e)
 	{
 	}
+	
+	protected void Save ()
+	{
+		if (filename.Equals (String.Empty))
+			return;
+		StreamWriter sw = new StreamWriter (filename);
+		sw.Write (sb.Text);
+		sw.Close ();
+		statusbar1.Push (0, "Saved..");
+	}
+	
+	protected virtual void OnSaveActionActivated (object sender, System.EventArgs e)
+	{
+		Save ();
+	}
+	
+	
 	
 	
 	
