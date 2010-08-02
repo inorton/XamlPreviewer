@@ -14,6 +14,10 @@ namespace XamlPreviewer
 			
 			MainWindow win = new MainWindow ();
 			win.Show ();
+			
+			if ( args.Length > 0 )
+				win.LoadFile( args[0] );
+			
 			Application.Run ();
 		}
 	}

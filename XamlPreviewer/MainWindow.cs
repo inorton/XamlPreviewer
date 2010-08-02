@@ -1,19 +1,21 @@
 using System;
 using System.IO;
 using GtkSourceView;
-
 using System.Windows.Controls;
 
 using Moonlight.Gtk;
 
 public partial class MainWindow : Gtk.Window
 {
+	private System.Threading.Thread mainThread = System.Threading.Thread.CurrentThread;
 
 	private string src = String.Empty;
 	private SourceBuffer sb;
 	private SourceView sv;
 	private Gtk.ScrolledWindow sw;
-	
+
+	private static System.Timers.Timer updateTimer = new System.Timers.Timer( 1500 );
+			
 	private string filename = String.Empty;
 
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
@@ -36,6 +38,14 @@ public partial class MainWindow : Gtk.Window
 		vpaned1.ShowAll ();
 		
 		xamlpanel2.SetScrollAdjustments( a1, a2 );
+
+		updateTimer.Elapsed += delegate {
+			RunUpdate();
+		};
+						
+		sb.Changed += delegate {
+			UpdatePreview();
+		};
 	}
 
 	protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
@@ -53,9 +63,20 @@ public partial class MainWindow : Gtk.Window
 
 	public void UpdatePreview ()
 	{
-
+		lock ( updateTimer ){
+			statusbar1.Push(0,"Typing....");
+			updateTimer.Stop();
+			updateTimer.Enabled = false;
+			updateTimer.Interval = 1500;
+			updateTimer.Start();
+		}
+		
+	} 
+	
+	
+	public void RunUpdate()
+	{
 		string tmp = sb.Text;
-		statusbar1.Push (0, "Updating...");
 		
 		if (src.Equals (tmp)){
 			return;
@@ -64,14 +85,14 @@ public partial class MainWindow : Gtk.Window
 		src = tmp;
 		
 		Console.Error.WriteLine(src);
-		
-		try {
-
-			xamlpanel2.ReloadXaml (src);
-			statusbar1.Push (0, "ok");
-		} catch (System.Windows.Markup.XamlParseException ex) {
-			statusbar1.Push (0, ex.Message);
-		}
+		Gtk.Application.Invoke( this, new EventArgs(), delegate {
+			try {
+				xamlpanel2.ReloadXaml (src);
+				statusbar1.Push (0, "ok");
+			} catch (System.Windows.Markup.XamlParseException ex) {
+				statusbar1.Push (0, ex.Message);
+			}
+		} );
 
 	}
 
@@ -85,17 +106,23 @@ public partial class MainWindow : Gtk.Window
 		xamlpanel2.SetScale( vscale1.Value/100.0, vscale1.Value/100.0 );
 	}
 	
+	public void LoadFile( string path )
+	{
+		StreamReader sr = new StreamReader (path);
+		filename = path;
+		sb.Text = sr.ReadToEnd();
+		sr.Close();
+		UpdatePreview();
+	
+	}
+	
 	protected virtual void OnOpenActionActivated (object sender, System.EventArgs e)
 	{
 		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog ("Open File", this, Gtk.FileChooserAction.Open, "Cancel", Gtk.ResponseType.Cancel, "Open", Gtk.ResponseType.Ok);
 		int x = fc.Run ();
 		if (x == (int)Gtk.ResponseType.Ok) {
 			if (fc.Filename != null) {
-				StreamReader sr = new StreamReader (fc.Filename);
-				filename = fc.Filename;
-				sb.Text = sr.ReadToEnd();
-				sr.Close();
-				UpdatePreview();
+				LoadFile( fc.Filename );
 			}
 		}
 		fc.Visible = false;

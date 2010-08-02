@@ -7,8 +7,6 @@ using System.Windows.Markup;
 
 namespace XamlPreviewer
 {
-	
-	public delegate void ChangedEventHanlder( object sender, EventArgs e );
 
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class XamlPanel : Gtk.Bin
@@ -65,21 +63,7 @@ namespace XamlPreviewer
 				
 				// MoonHost.LoadXaml (xaml);
 			}
-		}
-		
-		public event ChangedEventHanlder Changed;
-		
-		protected virtual void OnChanged (EventArgs a)
-		{
-			if (Changed != null)
-				Changed (this, a);
-		}
-		
-		protected virtual void OnRealized (object sender, System.EventArgs e)
-		{
-			
-		}
-		
+		}	
 		
 		
 	}

@@ -166,7 +166,6 @@
   <widget class="Gtk.Bin" id="XamlPreviewer.XamlPanel" design-size="678 433">
     <property name="MemberName" />
     <property name="Visible">False</property>
-    <signal name="Realized" handler="OnRealized" />
     <child>
       <widget class="Gtk.Frame" id="frame1">
         <property name="MemberName" />

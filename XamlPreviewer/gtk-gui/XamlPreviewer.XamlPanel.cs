@@ -34,7 +34,6 @@ namespace XamlPreviewer
 				this.Child.ShowAll ();
 			}
 			this.Hide ();
-			this.Realized += new global::System.EventHandler (this.OnRealized);
 		}
 	}
 }
