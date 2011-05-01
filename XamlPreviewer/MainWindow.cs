@@ -7,8 +7,6 @@ using Moonlight.Gtk;
 
 public partial class MainWindow : Gtk.Window
 {
-	private System.Threading.Thread mainThread = System.Threading.Thread.CurrentThread;
-
 	private string src = String.Empty;
 	private SourceBuffer sb;
 	private SourceView sv;

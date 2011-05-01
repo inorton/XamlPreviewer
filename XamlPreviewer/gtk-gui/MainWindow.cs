@@ -4,31 +4,17 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-
 	private global::Gtk.Action openAction;
-
 	private global::Gtk.Action saveAsAction;
-
 	private global::Gtk.Action saveAction;
-
 	private global::Gtk.VBox vbox1;
-
 	private global::Gtk.Toolbar toolbar1;
-
 	private global::Gtk.VPaned vpaned1;
-
 	private global::Gtk.HBox hbox1;
-
-	private global::Gtk.ScrolledWindow GtkScrolledWindow1;
-
 	private global::XamlPreviewer.XamlPanel xamlpanel2;
-
 	private global::Gtk.VScale vscale1;
-
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-
 	private global::Gtk.TextView TextEditor;
-
 	private global::Gtk.Statusbar statusbar1;
 
 	protected virtual void Build ()
@@ -60,7 +46,7 @@ public partial class MainWindow
 		this.toolbar1.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.toolbar1.IconSize = ((global::Gtk.IconSize)(3));
 		this.vbox1.Add (this.toolbar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.toolbar1]));
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.toolbar1]));
 		w2.Position = 0;
 		w2.Expand = false;
 		w2.Fill = false;
@@ -74,23 +60,12 @@ public partial class MainWindow
 		this.hbox1.Name = "hbox1";
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
-		this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
-		this.GtkScrolledWindow1.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow1.Gtk.Container+ContainerChild
-		global::Gtk.Viewport w3 = new global::Gtk.Viewport ();
-		w3.ShadowType = ((global::Gtk.ShadowType)(0));
-		// Container child GtkViewport.Gtk.Container+ContainerChild
 		this.xamlpanel2 = new global::XamlPreviewer.XamlPanel ();
-		this.xamlpanel2.WidthRequest = 1100;
-		this.xamlpanel2.HeightRequest = 720;
 		this.xamlpanel2.Events = ((global::Gdk.EventMask)(256));
 		this.xamlpanel2.Name = "xamlpanel2";
-		w3.Add (this.xamlpanel2);
-		this.GtkScrolledWindow1.Add (w3);
-		this.hbox1.Add (this.GtkScrolledWindow1);
-		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.GtkScrolledWindow1]));
-		w6.Position = 0;
+		this.hbox1.Add (this.xamlpanel2);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.xamlpanel2]));
+		w3.Position = 0;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.vscale1 = new global::Gtk.VScale (null);
 		this.vscale1.WidthRequest = 36;
@@ -106,13 +81,13 @@ public partial class MainWindow
 		this.vscale1.Digits = 0;
 		this.vscale1.ValuePos = ((global::Gtk.PositionType)(3));
 		this.hbox1.Add (this.vscale1);
-		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vscale1]));
-		w7.Position = 1;
-		w7.Expand = false;
-		w7.Padding = ((uint)(5));
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vscale1]));
+		w4.Position = 1;
+		w4.Expand = false;
+		w4.Padding = ((uint)(5));
 		this.vpaned1.Add (this.hbox1);
-		global::Gtk.Paned.PanedChild w8 = ((global::Gtk.Paned.PanedChild)(this.vpaned1[this.hbox1]));
-		w8.Resize = false;
+		global::Gtk.Paned.PanedChild w5 = ((global::Gtk.Paned.PanedChild)(this.vpaned1 [this.hbox1]));
+		w5.Resize = false;
 		// Container child vpaned1.Gtk.Paned+PanedChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
@@ -125,17 +100,17 @@ public partial class MainWindow
 		this.GtkScrolledWindow.Add (this.TextEditor);
 		this.vpaned1.Add (this.GtkScrolledWindow);
 		this.vbox1.Add (this.vpaned1);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vpaned1]));
-		w11.Position = 1;
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vpaned1]));
+		w8.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
-		w12.Position = 2;
-		w12.Expand = false;
-		w12.Fill = false;
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
+		w9.Position = 2;
+		w9.Expand = false;
+		w9.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();

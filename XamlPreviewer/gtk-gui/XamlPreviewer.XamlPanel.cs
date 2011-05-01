@@ -5,9 +5,7 @@ namespace XamlPreviewer
 	public partial class XamlPanel
 	{
 		private global::Gtk.Frame frame1;
-
 		private global::Gtk.Alignment GtkAlignment;
-
 		private global::Gtk.Label GtkLabel;
 
 		protected virtual void Build ()
@@ -21,7 +19,7 @@ namespace XamlPreviewer
 			this.frame1.Name = "frame1";
 			this.frame1.ShadowType = ((global::Gtk.ShadowType)(0));
 			// Container child frame1.Gtk.Container+ContainerChild
-			this.GtkAlignment = new global::Gtk.Alignment (0f, 2.428613E-17f, 1f, 1f);
+			this.GtkAlignment = new global::Gtk.Alignment (0F, 2.428613E-17F, 1F, 1F);
 			this.GtkAlignment.Name = "GtkAlignment";
 			this.frame1.Add (this.GtkAlignment);
 			this.GtkLabel = new global::Gtk.Label ();

@@ -21,8 +21,10 @@ namespace XamlPreviewer
 		{
 			this.Build ();
 			MoonHost = new MoonlightHost ();
-		
-			Grid align = new Grid ();
+
+      var sv = new ScrollViewer();
+
+			Grid align = new Grid () { MinWidth=400.0, MinHeight=300.0 };
 			align.Background = new System.Windows.Media.SolidColorBrush (System.Windows.Media.Colors.Gray);
 		
 			Border cont = new Border ();
@@ -38,8 +40,8 @@ namespace XamlPreviewer
 			cont.RenderTransform = new System.Windows.Media.ScaleTransform(){ ScaleX = 0.75, ScaleY = 0.75 };
 			
 			align.Children.Add( outer );
-			
-			MoonHost.Content = align;
+			sv.Content = align;
+			MoonHost.Content = sv;
 			this.Remove( frame1 );
 			this.Add( MoonHost );
 			this.ShowAll ();
