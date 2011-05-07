@@ -615,11 +615,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Content Include="AppManifest.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="start.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -629,7 +624,7 @@
       <Properties>
         <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="true" RelativeMakefileName="Makefile.am" SyncReferences="true" IsAutotoolsProject="true" RelativeConfigureInPath="..">
           <BuildFilesVar Sync="true" Name="FILES" />
-          <DeployFilesVar Sync="true" Name="APPMANIFEST_XAML" />
+          <DeployFilesVar Sync="true" Name="DATA_FILES" />
           <ResourcesVar Sync="true" Name="RESOURCES" />
           <OthersVar Sync="true" Name="DATA_FILES" />
           <GacRefVar Sync="true" Name="REFERENCES" />
