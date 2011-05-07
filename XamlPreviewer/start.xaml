@@ -9,11 +9,25 @@
 
   <StackPanel Margin="10">
     <TextBlock Text="Hello World"/>
-    <Button Content="{StaticResource buttonText}">
+    <Button Content="{StaticResource buttonText}" Margin="4" Padding="12">
       <Button.Effect>
-         <DropShadowEffect ShadowDepth="2" BlurRadius="3"/>
+         <DropShadowEffect ShadowDepth="2" BlurRadius="5"/>
       </Button.Effect>
     </Button>
+
+    <ComboBox Margin="4" Padding="12">
+      <ComboBox.Effect>
+         <DropShadowEffect ShadowDepth="2" BlurRadius="5"/>
+      </ComboBox.Effect>
+      <ComboBox.Items>
+         <sys:String>One</sys:String>
+         <sys:String>Two</sys:String>
+         <sys:String>Three</sys:String>
+      </ComboBox.Items>
+    </ComboBox>
+
+
+
   </StackPanel>
 
 </UserControl>
