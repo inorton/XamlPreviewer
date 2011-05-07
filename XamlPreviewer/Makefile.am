@@ -43,12 +43,16 @@ PROGRAMFILES = \
 	$(START_XAML)  
 
 BINARIES = \
-	$(XAMLPREVIEWER)  
+	$(XAMLPREVIEWER) 
 
 
 RESGEN=resgen2
 	
-all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) 
+all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) update_libs
+
+update_libs:
+	echo updating MoonBase
+	cp `pkg-config --variable=Libraries mono.moondesk.moonwindow` `dirname $(ASSEMBLY)`
 
 FILES =  \
 	AssemblyInfo.cs \
