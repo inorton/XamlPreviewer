@@ -21,6 +21,12 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <Commandlineparameters>start.xaml</Commandlineparameters>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeExecute" command="cp /usr/local/lib/moonbase/* ${TargetDir}" workingdir="${SolutionDir}" externalConsole="true" />
+        <Command type="BeforeExecute" command="cp /usr/local/lib/mono/moonlight/* ${TargetDir}" workingdir="${SolutionDir}" externalConsole="true" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -33,13 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Mono.Posix" />
-    <Reference Include="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\usr\lib\mono\moonlight\Moonlight.Gtk.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\usr\lib\mono\moonlight\System.Windows.dll</HintPath>
     </Reference>
     <Reference Include="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
@@ -584,10 +584,22 @@
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="Moon.Windows.Desktop, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+    <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4141.20728, Culture=neutral">
+      <Package>mono.moondesk.viewloader</Package>
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\usr\lib\mono\moonlight\Moon.Windows.Desktop.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.MoonDesk.MoonWindow, Version=1.0.4141.20727, Culture=neutral">
+      <Package>mono.moondesk.moonwindow</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.MoonDesk.Commands, Version=1.0.4141.19840, Culture=neutral">
+      <Package>mono.moondesk.commands</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="System.Windows.Browser, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -600,8 +612,6 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="XamlPanel.cs" />
-    <Compile Include="gtk-gui\XamlPreviewer.XamlPanel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -617,7 +627,7 @@
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
-        <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="true" RelativeMakefileName="Makefile.am" SyncReferences="true" IsAutotoolsProject="true" RelativeConfigureInPath="..">
+        <MonoDevelop.Autotools.MakefileInfo RelativeMakefileName="Makefile.am" SyncReferences="true" IsAutotoolsProject="true" RelativeConfigureInPath="..">
           <BuildFilesVar Sync="true" Name="FILES" />
           <DeployFilesVar />
           <ResourcesVar Sync="true" Name="RESOURCES" />

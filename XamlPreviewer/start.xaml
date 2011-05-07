@@ -1,13 +1,19 @@
-<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              >
-
   <UserControl.Resources>
-    <sys:string x:Name="Fred">Foo</sys:string>
+    <sys:String x:Key="buttonText">Click Me</sys:String>
   </UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" Background="Black">
-		<TextBlock Foreground="White" FontSize="48" Text="{StaticResource Fred}"/>
-	</Grid>
+
+  <StackPanel Margin="10">
+    <TextBlock Text="Hello World"/>
+    <Button Content="{StaticResource buttonText}">
+      <Button.Effect>
+         <DropShadowEffect ShadowDepth="2" BlurRadius="3"/>
+      </Button.Effect>
+    </Button>
+  </StackPanel>
+
 </UserControl>

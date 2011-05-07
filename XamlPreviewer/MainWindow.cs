@@ -4,13 +4,16 @@ using GtkSourceView;
 using System.Windows.Controls;
 
 using Moonlight.Gtk;
+using XamlPreviewer;
+using Mono.MoonDesk;
 
 public partial class MainWindow : Gtk.Window
 {
 	private string src = String.Empty;
-	private SourceBuffer sb;
-	private SourceView sv;
-	private Gtk.ScrolledWindow sw;
+	private SourceBuffer sb = null;
+	private SourceView sv = null;
+
+  public MoonWindow MoonWindow { get; set; }
 
 	private static System.Timers.Timer updateTimer = new System.Timers.Timer( 1500 );
 			
@@ -25,17 +28,7 @@ public partial class MainWindow : Gtk.Window
 		sb.HighlightMatchingBrackets = true;
 		
 		sv = new SourceView (sb);
-		sw = new Gtk.ScrolledWindow ();
-		sw.Add (sv);
-
-		Gtk.Adjustment a1 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
-		Gtk.Adjustment a2 = new Gtk.Adjustment (50.0, 0, 100.0, 1.0, 10.0, 5.0);
-	
-		vpaned1.Child2.Destroy ();
-		vpaned1.Add2 (sw);
-		vpaned1.ShowAll ();
-		
-		xamlpanel2.SetScrollAdjustments( a1, a2 );
+		scrolledwindow1.Add (sv);
 
 		updateTimer.Elapsed += delegate {
 			RunUpdate();
@@ -44,9 +37,11 @@ public partial class MainWindow : Gtk.Window
 		sb.Changed += delegate {
 			UpdatePreview();
 		};
+
+    vbox1.ShowAll();
 	}
 
-	protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
+  protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
 	{
 		Gtk.Application.Quit ();
 		a.RetVal = true;
@@ -85,7 +80,8 @@ public partial class MainWindow : Gtk.Window
 		Console.Error.WriteLine(src);
 		Gtk.Application.Invoke( this, new EventArgs(), delegate {
 			try {
-				xamlpanel2.ReloadXaml (src);
+        MoonWindow.Host.LoadXaml(src);
+
 				statusbar1.Push (0, "ok");
 			} catch (System.Windows.Markup.XamlParseException ex) {
 				statusbar1.Push (0, ex.Message);
@@ -98,12 +94,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		return src;
 	}
-	
-	protected virtual void OnVscale1ChangeValue (object o, Gtk.ChangeValueArgs args)
-	{
-		xamlpanel2.SetScale( vscale1.Value/100.0, vscale1.Value/100.0 );
-	}
-	
+
 	public void LoadFile( string path )
 	{
 		StreamReader sr = new StreamReader (path);

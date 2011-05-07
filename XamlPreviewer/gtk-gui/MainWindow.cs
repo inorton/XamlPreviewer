@@ -9,12 +9,7 @@ public partial class MainWindow
 	private global::Gtk.Action saveAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.Toolbar toolbar1;
-	private global::Gtk.VPaned vpaned1;
-	private global::Gtk.HBox hbox1;
-	private global::XamlPreviewer.XamlPanel xamlpanel2;
-	private global::Gtk.VScale vscale1;
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-	private global::Gtk.TextView TextEditor;
+	private global::Gtk.ScrolledWindow scrolledwindow1;
 	private global::Gtk.Statusbar statusbar1;
 
 	protected virtual void Build ()
@@ -51,78 +46,32 @@ public partial class MainWindow
 		w2.Expand = false;
 		w2.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.vpaned1 = new global::Gtk.VPaned ();
-		this.vpaned1.CanFocus = true;
-		this.vpaned1.Name = "vpaned1";
-		this.vpaned1.Position = 250;
-		// Container child vpaned1.Gtk.Paned+PanedChild
-		this.hbox1 = new global::Gtk.HBox ();
-		this.hbox1.Name = "hbox1";
-		this.hbox1.Spacing = 6;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.xamlpanel2 = new global::XamlPreviewer.XamlPanel ();
-		this.xamlpanel2.Events = ((global::Gdk.EventMask)(256));
-		this.xamlpanel2.Name = "xamlpanel2";
-		this.hbox1.Add (this.xamlpanel2);
-		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.xamlpanel2]));
-		w3.Position = 0;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.vscale1 = new global::Gtk.VScale (null);
-		this.vscale1.WidthRequest = 36;
-		this.vscale1.CanFocus = true;
-		this.vscale1.Name = "vscale1";
-		this.vscale1.Inverted = true;
-		this.vscale1.Adjustment.Lower = 5;
-		this.vscale1.Adjustment.Upper = 200;
-		this.vscale1.Adjustment.PageIncrement = 5;
-		this.vscale1.Adjustment.StepIncrement = 1;
-		this.vscale1.Adjustment.Value = 75;
-		this.vscale1.DrawValue = true;
-		this.vscale1.Digits = 0;
-		this.vscale1.ValuePos = ((global::Gtk.PositionType)(3));
-		this.hbox1.Add (this.vscale1);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vscale1]));
-		w4.Position = 1;
-		w4.Expand = false;
-		w4.Padding = ((uint)(5));
-		this.vpaned1.Add (this.hbox1);
-		global::Gtk.Paned.PanedChild w5 = ((global::Gtk.Paned.PanedChild)(this.vpaned1 [this.hbox1]));
-		w5.Resize = false;
-		// Container child vpaned1.Gtk.Paned+PanedChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.TextEditor = new global::Gtk.TextView ();
-		this.TextEditor.CanFocus = true;
-		this.TextEditor.Name = "TextEditor";
-		this.TextEditor.Editable = false;
-		this.GtkScrolledWindow.Add (this.TextEditor);
-		this.vpaned1.Add (this.GtkScrolledWindow);
-		this.vbox1.Add (this.vpaned1);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vpaned1]));
-		w8.Position = 1;
+		this.scrolledwindow1 = new global::Gtk.ScrolledWindow ();
+		this.scrolledwindow1.CanFocus = true;
+		this.scrolledwindow1.Name = "scrolledwindow1";
+		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
+		this.vbox1.Add (this.scrolledwindow1);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.scrolledwindow1]));
+		w3.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
-		w9.Position = 2;
-		w9.Expand = false;
-		w9.Fill = false;
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
+		w4.Position = 2;
+		w4.Expand = false;
+		w4.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 1135;
-		this.DefaultHeight = 915;
+		this.DefaultWidth = 566;
+		this.DefaultHeight = 502;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.openAction.Activated += new global::System.EventHandler (this.OnOpenActionActivated);
 		this.saveAsAction.Activated += new global::System.EventHandler (this.OnSaveAsActionActivated);
 		this.saveAction.Activated += new global::System.EventHandler (this.OnSaveActionActivated);
-		this.vscale1.ChangeValue += new global::Gtk.ChangeValueHandler (this.OnVscale1ChangeValue);
-		this.TextEditor.KeyReleaseEvent += new global::Gtk.KeyReleaseEventHandler (this.OnTextEditorKeyReleaseEvent);
 	}
 }

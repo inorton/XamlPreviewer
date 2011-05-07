@@ -66,7 +66,6 @@ FILES =  \
 	AssemblyInfo.cs \
 	gtk-gui/generated.cs \
 	gtk-gui/MainWindow.cs \
-	gtk-gui/XamlPreviewer.XamlPanel.cs \
 	Main.cs \
 	MainWindow.cs \
 	XamlPanel.cs 
@@ -81,14 +80,15 @@ EXTRAS = \
 	xamlpreviewer.in 
 
 REFERENCES =  \
-	../../../../../../usr/lib/mono/moonlight/Moon.Windows.Desktop.dll \
-	../../../../../../usr/lib/mono/moonlight/Moonlight.Gtk.dll \
-	../../../../../../usr/lib/mono/moonlight/System.Windows.dll \
 	Mono.Posix \
 	-pkg:glade-sharp-2.0 \
 	-pkg:glib-sharp-2.0 \
 	-pkg:gtk-sharp-2.0 \
 	-pkg:gtksourceview2-sharp \
+	-pkg:mono.moondesk.commands \
+	-pkg:mono.moondesk.moonwindow \
+	-pkg:mono.moondesk.viewloader \
+	-pkg:moonlight-desktop-4.0 \
 	System
 
 DLL_REFERENCES =  \
