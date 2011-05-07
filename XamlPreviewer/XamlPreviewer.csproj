@@ -629,9 +629,9 @@
       <Properties>
         <MonoDevelop.Autotools.MakefileInfo RelativeMakefileName="Makefile.am" SyncReferences="true" IsAutotoolsProject="true" RelativeConfigureInPath="..">
           <BuildFilesVar Sync="true" Name="FILES" />
-          <DeployFilesVar />
+          <DeployFilesVar Sync="true" Name="APPMANIFEST_XAML" />
           <ResourcesVar Sync="true" Name="RESOURCES" />
-          <OthersVar />
+          <OthersVar Sync="true" Name="DATA_FILES" />
           <GacRefVar Sync="true" Name="REFERENCES" />
           <AsmRefVar Sync="true" Name="REFERENCES" />
           <ProjectRefVar Sync="true" Name="REFERENCES" />
