@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlPreviewer", "XamlPrevie
 EndProject
 Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{53C10285-9A59-490D-90E8-84F7B5D1CF2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{7E265DF5-8ABE-46A4-B477-C5F738D67573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +17,14 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{53C10285-9A59-490D-90E8-84F7B5D1CF2A}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{53C10285-9A59-490D-90E8-84F7B5D1CF2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}.Release|x86.Build.0 = Release|Any CPU
+		{7E265DF5-8ABE-46A4-B477-C5F738D67573}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E265DF5-8ABE-46A4-B477-C5F738D67573}.Debug|x86.Build.0 = Debug|Any CPU
+		{7E265DF5-8ABE-46A4-B477-C5F738D67573}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E265DF5-8ABE-46A4-B477-C5F738D67573}.Release|x86.Build.0 = Release|Any CPU
 		{EF6F7100-1220-4DDA-B6B3-99D2988DAE3B}.Debug|x86.ActiveCfg = Debug|x86
 		{EF6F7100-1220-4DDA-B6B3-99D2988DAE3B}.Debug|x86.Build.0 = Debug|x86
 		{EF6F7100-1220-4DDA-B6B3-99D2988DAE3B}.Release|x86.ActiveCfg = Release|x86

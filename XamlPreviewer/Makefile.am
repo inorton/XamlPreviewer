@@ -71,6 +71,8 @@ EXTRAS = \
 	xamlpreviewer.in 
 
 REFERENCES =  \
+	../ViewModels/bin/Debug/ViewModels.dll \
+	../Views/bin/Debug/Views.dll \
 	Mono.Posix \
 	-pkg:glade-sharp-2.0 \
 	-pkg:glib-sharp-2.0 \

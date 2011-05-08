@@ -3,6 +3,8 @@ using Gtk;
 using Moonlight.Gtk;
 using Mono.MoonDesk;
 
+using ViewModels;
+
 namespace XamlPreviewer
 {
 	class MainClass
@@ -26,14 +28,19 @@ namespace XamlPreviewer
       MoonWindow mw = new MoonWindow();
 
       mw.Move( 16 + win_x + win_w, win_y );
-      mw.DefaultWidth = 500;
-      mw.WidthRequest = win_w;
-      mw.HeightRequest = win_h;
+      mw.DefaultWidth = 160;
+      mw.DefaultHeight = 120;
+      mw.Resize( win_w, win_h );
 
       mw.ShowAll();
       mw.Host.Content = new System.Windows.Controls.TextBlock(){ Text = "Loading..." };
-      win.MoonWindow = mw;
-			
+
+
+      ViewResolver resolver = new ViewResolver( mw.Host );
+      var xp = resolver.Loader.LoadView<XamlPanelViewModel>("Views;Views/XamlPanel.xaml");
+      win.XpVM = xp.ViewModel;
+      mw.Host.Content = xp.View;
+
 			if ( args.Length > 0 )
 				win.LoadFile( args[0] );
 			
