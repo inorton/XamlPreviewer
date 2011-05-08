@@ -9,13 +9,18 @@ ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:4 -optimize- -debug "-
 ASSEMBLY = bin/Debug/XamlPreviewer.exe
 ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = winexe
-PROJECT_REFERENCES = 
+PROJECT_REFERENCES =  \
+	../Views/bin/Debug/Views.dll \
+	../ViewModels/bin/Debug/ViewModels.dll
 BUILD_DIR = bin/Debug
 
 XAMLPREVIEWER_EXE_MDB_SOURCE=bin/Debug/XamlPreviewer.exe.mdb
 XAMLPREVIEWER_EXE_MDB=$(BUILD_DIR)/XamlPreviewer.exe.mdb
-APPMANIFEST_XAML_SOURCE=AppManifest.xaml
 START_XAML_SOURCE=start.xaml
+VIEWS_DLL_SOURCE=../Views/bin/Debug/Views.dll
+VIEWS_DLL_MDB_SOURCE=../Views/bin/Debug/Views.dll.mdb
+VIEWMODELS_DLL_SOURCE=../ViewModels/bin/Debug/ViewModels.dll
+VIEWMODELS_DLL_MDB_SOURCE=../ViewModels/bin/Debug/ViewModels.dll.mdb
 
 endif
 
@@ -25,12 +30,17 @@ ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:4 -optimize-
 ASSEMBLY = bin/Release/XamlPreviewer.exe
 ASSEMBLY_MDB = 
 COMPILE_TARGET = winexe
-PROJECT_REFERENCES = 
+PROJECT_REFERENCES =  \
+	../Views/bin/Release/Views.dll \
+	../ViewModels/bin/Release/ViewModels.dll
 BUILD_DIR = bin/Release
 
 XAMLPREVIEWER_EXE_MDB=
-APPMANIFEST_XAML_SOURCE=AppManifest.xaml
 START_XAML_SOURCE=start.xaml
+VIEWS_DLL_SOURCE=../Views/bin/Debug/Views.dll
+VIEWS_DLL_MDB_SOURCE=../Views/bin/Debug/Views.dll.mdb
+VIEWMODELS_DLL_SOURCE=../ViewModels/bin/Debug/ViewModels.dll
+VIEWMODELS_DLL_MDB_SOURCE=../ViewModels/bin/Debug/ViewModels.dll.mdb
 
 endif
 
@@ -39,20 +49,19 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 
 PROGRAMFILES = \
 	$(XAMLPREVIEWER_EXE_MDB) \
-	$(APPMANIFEST_XAML) \
-	$(START_XAML)  
+	$(START_XAML) \
+	$(VIEWS_DLL) \
+	$(VIEWS_DLL_MDB) \
+	$(VIEWMODELS_DLL) \
+	$(VIEWMODELS_DLL_MDB)  
 
 BINARIES = \
-	$(XAMLPREVIEWER) 
+	$(XAMLPREVIEWER)  
 
 
 RESGEN=resgen2
 	
-all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) update_libs
-
-update_libs:
-	echo updating MoonBase
-	cp `pkg-config --variable=Libraries mono.moondesk.moonwindow` `dirname $(ASSEMBLY)`
+all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) 
 
 FILES =  \
 	AssemblyInfo.cs \
@@ -61,12 +70,11 @@ FILES =  \
 	Main.cs \
 	MainWindow.cs 
 
-DATA_FILES = start.xaml 
+DATA_FILES = 
 
 RESOURCES = gtk-gui/gui.stetic 
 
 EXTRAS = \
-	AppManifest.xaml \
 	start.xaml \
 	xamlpreviewer.in 
 
@@ -91,12 +99,18 @@ CLEANFILES = $(PROGRAMFILES) $(BINARIES)
 
 include $(top_srcdir)/Makefile.include
 
-APPMANIFEST_XAML = AppManifest.xaml
 START_XAML = $(BUILD_DIR)/start.xaml
+VIEWS_DLL = $(BUILD_DIR)/Views.dll
+VIEWS_DLL_MDB = $(BUILD_DIR)/Views.dll.mdb
+VIEWMODELS_DLL = $(BUILD_DIR)/ViewModels.dll
+VIEWMODELS_DLL_MDB = $(BUILD_DIR)/ViewModels.dll.mdb
 XAMLPREVIEWER = $(BUILD_DIR)/xamlpreviewer
 
-$(eval $(call emit-deploy-target,APPMANIFEST_XAML))
 $(eval $(call emit-deploy-target,START_XAML))
+$(eval $(call emit-deploy-target,VIEWS_DLL))
+$(eval $(call emit-deploy-target,VIEWS_DLL_MDB))
+$(eval $(call emit-deploy-target,VIEWMODELS_DLL))
+$(eval $(call emit-deploy-target,VIEWMODELS_DLL_MDB))
 $(eval $(call emit-deploy-wrapper,XAMLPREVIEWER,xamlpreviewer,x))
 
 

@@ -15,6 +15,9 @@ namespace ViewModels
         return _userContent;
       }
       set {
+        if ( value != null ){
+          value.DataContext = new Object();
+        }
         _userContent = value;
         OnPropertyChanged("UserContent");
       }
