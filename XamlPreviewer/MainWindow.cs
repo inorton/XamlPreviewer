@@ -7,13 +7,15 @@ using Moonlight.Gtk;
 using XamlPreviewer;
 using Mono.MoonDesk;
 
+using ViewModels;
+
 public partial class MainWindow : Gtk.Window
 {
 	private string src = String.Empty;
 	private SourceBuffer sb = null;
 	private SourceView sv = null;
 
-  public MoonWindow MoonWindow { get; set; }
+  public XamlPanelViewModel XpVM { get; set; }
 
 	private static System.Timers.Timer updateTimer = new System.Timers.Timer( 1500 );
 			
@@ -80,7 +82,8 @@ public partial class MainWindow : Gtk.Window
 		Console.Error.WriteLine(src);
 		Gtk.Application.Invoke( this, new EventArgs(), delegate {
 			try {
-        MoonWindow.Host.LoadXaml(src);
+        var view = System.Windows.Markup.XamlReader.LoadWithInitialTemplateValidation( src ) as System.Windows.FrameworkElement;
+        XpVM.UserContent = view;
 
 				statusbar1.Push (0, "ok");
 			} catch (System.Windows.Markup.XamlParseException ex) {
