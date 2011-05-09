@@ -103,34 +103,35 @@ RESGEN=resgen2
 	
 all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) 
 
-FILES = \
+FILES =  \
+	AssemblyInfo.cs \
 	gtk-gui/generated.cs \
-	MainWindow.cs \
 	gtk-gui/MainWindow.cs \
 	Main.cs \
-	AssemblyInfo.cs 
+	MainWindow.cs 
 
 DATA_FILES = 
 
-RESOURCES = \
-	gtk-gui/gui.stetic 
+RESOURCES = gtk-gui/gui.stetic 
 
 EXTRAS = \
 	appmanifest.xaml \
 	xamlpreviewer.in 
 
 REFERENCES =  \
-	System \
+	../ViewModels/bin/Debug/ViewModels.dll \
+	../Views/bin/Debug/Views.dll \
 	Mono.Posix \
-	$(MOONLIGHT_DESKTOP_40_LIBS) \
-	$(GTKSOURCEVIEW2_SHARP_LIBS) \
-	$(GTK_SHARP_20_LIBS) \
-	$(GLIB_SHARP_20_LIBS) \
-	$(GLADE_SHARP_20_LIBS) \
-	$(MONOMOONDESKVIEWLOADER_LIBS) \
-	$(MONOMOONDESKMOONWINDOW_LIBS) \
-	$(MONOMOONDESKCOMMANDS_LIBS) \
-	$(MOONLIGHT_GTK_40_LIBS)
+	-pkg:glade-sharp-2.0 \
+	-pkg:glib-sharp-2.0 \
+	-pkg:gtk-sharp-2.0 \
+	-pkg:gtksourceview-sharp-2.0 \
+	-pkg:mono.moondesk.commands \
+	-pkg:mono.moondesk.moonwindow \
+	-pkg:mono.moondesk.viewloader \
+	-pkg:moonlight-desktop-4.0 \
+	-pkg:moonlight-gtk-4.0 \
+	System
 
 DLL_REFERENCES = 
 

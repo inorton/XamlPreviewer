@@ -24,10 +24,11 @@ public partial class MainWindow : Gtk.Window
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		
-		sb = new SourceBuffer (SourceLanguageManager.Default.GetLanguage ("xml"));
-		sb.HighlightSyntax = true;
-		sb.HighlightMatchingBrackets = true;
+		var manager = new SourceLanguagesManager();
+    
+		sb = new SourceBuffer (manager.GetLanguageFromMimeType("text/xml"));
+		sb.Highlight = true;
+		sb.CheckBrackets = true;
 		
 		sv = new SourceView (sb);
 		scrolledwindow1.Add (sv);
