@@ -70,7 +70,7 @@ FILES =  \
 	Main.cs \
 	MainWindow.cs 
 
-DATA_FILES = 
+DATA_FILES = appmanifest.xaml 
 
 RESOURCES = gtk-gui/gui.stetic 
 
