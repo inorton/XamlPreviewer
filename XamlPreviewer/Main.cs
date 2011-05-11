@@ -12,29 +12,32 @@ namespace XamlPreviewer
 		public static void Main (string[] args)
 		{
 			Application.Init ();
-			
 			MoonlightRuntime.Init ();
 			
-			MainWindow win = new MainWindow ();
-			win.Show ();
-      int win_x;
-      int win_y;
-      int win_w;
-      int win_h;
-
-      win.GetPosition( out win_x, out win_y );
-      win.GetSize( out win_w, out win_h );
-
       MoonWindow mw = new MoonWindow();
-
-      mw.Move( 16 + win_x + win_w, win_y );
+   
+      mw.Title = "Xaml Preview";
       mw.DefaultWidth = 160;
-      mw.DefaultHeight = 120;
-      mw.Resize( win_w, win_h );
+      mw.DefaultHeight = 100;
+      mw.Resize( 700, 200 );
 
       mw.ShowAll();
       mw.Host.Content = new System.Windows.Controls.TextBlock(){ Text = "Loading..." };
 
+      int win_x;
+      int win_y;
+      int win_w;
+      int win_h;
+      
+      mw.GetPosition( out win_x, out win_y );
+      mw.GetSize( out win_w, out win_h );
+      
+      
+      MainWindow win = new MainWindow ();
+      win.Title = "Xaml Source";
+      win.Show ();
+      win.Move( win_x, win_y + win_h + 32 );
+      win.Resize( 700, 200 );
 
       ViewResolver resolver = new ViewResolver( mw.Host );
       var xp = resolver.Loader.LoadView<XamlPanelViewModel>("Views;Views/XamlPanel.xaml");

@@ -6,10 +6,11 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="Mono.MoonDesk.ViewLoader, Version=1.0.4146.28111, Culture=neutral" />
-    <widget-library name="Mono.MoonDesk.MoonWindow, Version=1.0.4146.28111, Culture=neutral" />
     <widget-library name="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
     <widget-library name="gtksourceview-sharp, Version=1.0.0.2, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../../ViewModels/bin/Debug/ViewModels.dll" />
+    <widget-library name="Mono.MoonDesk.ViewLoader, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
+    <widget-library name="Mono.MoonDesk.MoonWindow, Version=1.0.4148.18739, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
     <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="566 502">

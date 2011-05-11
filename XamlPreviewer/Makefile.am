@@ -14,7 +14,6 @@ PROJECT_REFERENCES =  \
 	../ViewModels/bin/Debug/ViewModels.dll
 BUILD_DIR = bin/Debug
 
-APPMANIFEST_XAML_SOURCE=appmanifest.xaml
 VIEWS_DLL_SOURCE=../Views/bin/Debug/Views.dll
 VIEWS_DLL_MDB_SOURCE=../Views/bin/Debug/Views.dll.mdb
 VIEWS_DLL_MDB=$(BUILD_DIR)/Views.dll.mdb
@@ -35,7 +34,6 @@ PROJECT_REFERENCES =  \
 	../ViewModels/bin/Release/ViewModels.dll
 BUILD_DIR = bin/Release
 
-APPMANIFEST_XAML_SOURCE=appmanifest.xaml
 VIEWS_DLL_SOURCE=../Views/bin/Debug/Views.dll
 VIEWS_DLL_MDB_SOURCE=../Views/bin/Debug/Views.dll.mdb
 VIEWS_DLL_MDB=$(BUILD_DIR)/Views.dll.mdb
@@ -56,7 +54,6 @@ PROJECT_REFERENCES =  \
 	../ViewModels/bin/Debug/ViewModels.dll
 BUILD_DIR = bin/Debug
 
-APPMANIFEST_XAML_SOURCE=appmanifest.xaml
 VIEWS_DLL_SOURCE=../Views/bin/Debug/Views.dll
 VIEWS_DLL_MDB_SOURCE=../Views/bin/Debug/Views.dll.mdb
 VIEWS_DLL_MDB=$(BUILD_DIR)/Views.dll.mdb
@@ -77,7 +74,6 @@ PROJECT_REFERENCES =  \
 	../ViewModels/bin/Release/ViewModels.dll
 BUILD_DIR = bin/Release
 
-APPMANIFEST_XAML_SOURCE=appmanifest.xaml
 VIEWS_DLL_SOURCE=../Views/bin/Release/Views.dll
 VIEWS_DLL_MDB=
 VIEWMODELS_DLL_SOURCE=../ViewModels/bin/Release/ViewModels.dll
@@ -89,7 +85,6 @@ AL=al2
 SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 
 PROGRAMFILES = \
-	$(APPMANIFEST_XAML) \
 	$(VIEWS_DLL) \
 	$(VIEWS_DLL_MDB) \
 	$(VIEWMODELS_DLL) \
@@ -115,7 +110,6 @@ DATA_FILES =
 RESOURCES = gtk-gui/gui.stetic 
 
 EXTRAS = \
-	appmanifest.xaml \
 	xamlpreviewer.in 
 
 REFERENCES =  \
@@ -139,12 +133,10 @@ CLEANFILES = $(PROGRAMFILES) $(BINARIES)
 
 include $(top_srcdir)/Makefile.include
 
-APPMANIFEST_XAML = $(BUILD_DIR)/appmanifest.xaml
 VIEWS_DLL = $(BUILD_DIR)/Views.dll
 VIEWMODELS_DLL = $(BUILD_DIR)/ViewModels.dll
 XAMLPREVIEWER = $(BUILD_DIR)/xamlpreviewer
 
-$(eval $(call emit-deploy-target,APPMANIFEST_XAML))
 $(eval $(call emit-deploy-target,VIEWS_DLL))
 $(eval $(call emit-deploy-target,VIEWS_DLL_MDB))
 $(eval $(call emit-deploy-target,VIEWMODELS_DLL))

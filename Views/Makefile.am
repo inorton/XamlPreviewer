@@ -71,19 +71,16 @@ RESGEN=resgen2
 	
 all: $(ASSEMBLY) $(PROGRAMFILES) $(LINUX_PKGCONFIG) 
 
-FILES = \
-	AssemblyInfo.cs 
+FILES = AssemblyInfo.cs 
 
 DATA_FILES = 
 
-RESOURCES = \
-	XamlPanel.xaml,Views.XamlPanel.xaml 
+RESOURCES = XamlPanel.xaml,Views.XamlPanel.xaml 
 
 EXTRAS = \
 	views.pc.in 
 
-REFERENCES =  \
-	System
+REFERENCES = System
 
 DLL_REFERENCES = 
 

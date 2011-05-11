@@ -71,7 +71,7 @@ RESGEN=resgen2
 	
 all: $(ASSEMBLY) $(PROGRAMFILES) $(LINUX_PKGCONFIG) 
 
-FILES = \
+FILES =  \
 	AssemblyInfo.cs \
 	XamlPanelViewModel.cs 
 
@@ -83,9 +83,10 @@ EXTRAS = \
 	viewmodels.pc.in 
 
 REFERENCES =  \
-	System \
-	$(MOONLIGHT_DESKTOP_40_LIBS) \
-	$(MONOMOONDESKMOONWINDOW_LIBS)
+	-pkg:mono.moondesk.commands \
+	-pkg:mono.moondesk.viewloader \
+	-pkg:moonlight-desktop-4.0 \
+	System
 
 DLL_REFERENCES = 
 

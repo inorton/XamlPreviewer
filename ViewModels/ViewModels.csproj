@@ -40,10 +40,13 @@
     <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Mono.MoonDesk.Commands, Version=1.0.4146.28111, Culture=neutral">
+    <Reference Include="System.Windows.Browser, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="Mono.MoonDesk.Commands, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
+      <SpecificVersion>False</SpecificVersion>
       <Package>mono.moondesk.commands</Package>
     </Reference>
-    <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4146.28111, Culture=neutral">
+    <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
+      <SpecificVersion>False</SpecificVersion>
       <Package>mono.moondesk.viewloader</Package>
     </Reference>
   </ItemGroup>
@@ -52,4 +55,19 @@
     <Compile Include="XamlPanelViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="true" RelativeMakefileName="Makefile.am" SyncReferences="true" IsAutotoolsProject="true" RelativeConfigureInPath="..">
+          <BuildFilesVar Sync="true" Name="FILES" />
+          <DeployFilesVar />
+          <ResourcesVar Sync="true" Name="RESOURCES" />
+          <OthersVar />
+          <GacRefVar Sync="true" Name="REFERENCES" />
+          <AsmRefVar Sync="true" Name="REFERENCES" />
+          <ProjectRefVar Sync="true" Name="REFERENCES" />
+        </MonoDevelop.Autotools.MakefileInfo>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>
