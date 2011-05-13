@@ -4,19 +4,12 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-
 	private global::Gtk.Action openAction;
-
 	private global::Gtk.Action saveAsAction;
-
 	private global::Gtk.Action saveAction;
-
 	private global::Gtk.VBox vbox1;
-
 	private global::Gtk.Toolbar toolbar1;
-
 	private global::Gtk.ScrolledWindow scrolledwindow1;
-
 	private global::Gtk.Statusbar statusbar1;
 
 	protected virtual void Build ()
@@ -48,7 +41,7 @@ public partial class MainWindow
 		this.toolbar1.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.toolbar1.IconSize = ((global::Gtk.IconSize)(3));
 		this.vbox1.Add (this.toolbar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.toolbar1]));
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.toolbar1]));
 		w2.Position = 0;
 		w2.Expand = false;
 		w2.Fill = false;
@@ -58,14 +51,14 @@ public partial class MainWindow
 		this.scrolledwindow1.Name = "scrolledwindow1";
 		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
 		this.vbox1.Add (this.scrolledwindow1);
-		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.scrolledwindow1]));
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.scrolledwindow1]));
 		w3.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
 		w4.Position = 2;
 		w4.Expand = false;
 		w4.Fill = false;
