@@ -2,6 +2,7 @@ using System;
 using Gtk;
 using Moonlight.Gtk;
 using Mono.MoonDesk;
+using System.Windows;
 
 using ViewModels;
 
@@ -11,7 +12,7 @@ namespace XamlPreviewer
 	{
 		public static void Main (string[] args)
 		{
-			Application.Init ();
+			Gtk.Application.Init ();
 			MoonlightRuntime.Init ();
 			
       MoonWindow mw = new MoonWindow();
@@ -42,12 +43,12 @@ namespace XamlPreviewer
       ViewResolver resolver = new ViewResolver( mw.Host );
       var xp = resolver.Loader.LoadView<XamlPanelViewModel>("Views;Views/XamlPanel.xaml");
       win.XpVM = xp.ViewModel;
-      mw.Host.Content = xp.View;
+      mw.Host.Content = xp.View as FrameworkElement;
 
 			if ( args.Length > 0 )
 				win.LoadFile( args[0] );
 			
-			Application.Run ();
+			Gtk.Application.Run ();
 		}
 	}
 }
