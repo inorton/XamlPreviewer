@@ -18,7 +18,7 @@
    <StackPanel Background="White" Margin="20"
       HorizontalAlignment="Center" VerticalAlignment="Center">
      <StackPanel.Effect>
-       <DropShadowEffect BlurRadius="28" ShadowDepth="0"/>
+  <!--     <DropShadowEffect BlurRadius="28" ShadowDepth="0"/> -->
      </StackPanel.Effect>
      <StackPanel.RenderTransform>
       <ScaleTransform ScaleX="{Binding Path=ScaleValue}" ScaleY="{Binding Path=ScaleValue}" />
@@ -30,7 +30,7 @@
 
   <StackPanel Grid.Column="1" Background="White" Margin="0">
     <StackPanel.Effect>
-      <DropShadowEffect BlurRadius="28" ShadowDepth="0"/>
+  <!--    <DropShadowEffect BlurRadius="28" ShadowDepth="0"/> -->
     </StackPanel.Effect>
   
 
