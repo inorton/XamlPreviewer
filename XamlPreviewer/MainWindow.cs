@@ -56,6 +56,9 @@ public partial class MainWindow : Gtk.Window
 		UpdatePreview();
 	}
 
+  public Gtk.Container MoonAreaContainer {
+    get { return moonAreaContainer; }
+  }
 
 	public void UpdatePreview ()
 	{

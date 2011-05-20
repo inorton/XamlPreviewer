@@ -8,12 +8,12 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
     <widget-library name="gtksourceview-sharp, Version=1.0.0.2, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="Mono.MoonDesk.ViewLoader, Version=1.0.4150.39826, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
-    <widget-library name="Mono.MoonDesk.MoonWindow, Version=1.0.4150.39825, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
+    <widget-library name="Mono.MoonDesk.ViewLoader, Version=1.0.4156.17519, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
+    <widget-library name="Mono.MoonDesk.MoonWindow, Version=1.0.4150.28915, Culture=neutral, PublicKeyToken=5d2e4455728fa780" />
     <widget-library name="../../ViewModels/bin/Debug/ViewModels.dll" />
     <widget-library name="../bin/Debug/XamlPreviewer.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="566 502">
+  <widget class="Gtk.Window" id="MainWindow" design-size="735 640">
     <action-group name="Default">
       <action id="openAction">
         <property name="Type">Action</property>
@@ -62,16 +62,34 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+          <widget class="Gtk.VPaned" id="vpaned1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="ShadowType">In</property>
+            <property name="Position">400</property>
             <child>
-              <widget class="Gtk.Viewport" id="GtkViewport">
+              <widget class="Gtk.EventBox" id="moonAreaContainer">
                 <property name="MemberName" />
-                <property name="ShadowType">None</property>
                 <child>
                   <placeholder />
+                </child>
+              </widget>
+              <packing>
+                <property name="Resize">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.Viewport" id="GtkViewport">
+                    <property name="MemberName" />
+                    <property name="ShadowType">None</property>
+                    <child>
+                      <placeholder />
+                    </child>
+                  </widget>
                 </child>
               </widget>
             </child>

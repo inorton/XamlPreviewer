@@ -639,9 +639,6 @@
           <GacRefVar Sync="true" Name="REFERENCES" />
           <AsmRefVar Sync="true" Name="REFERENCES" />
           <ProjectRefVar Sync="true" Name="REFERENCES" />
-          <ExcludedFiles>
-            <File>start.xaml</File>
-          </ExcludedFiles>
         </MonoDevelop.Autotools.MakefileInfo>
       </Properties>
     </MonoDevelop>
