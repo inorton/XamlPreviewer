@@ -20,7 +20,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -29,7 +28,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -601,7 +599,6 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
-    <Reference Include="gtksourceview-sharp, Version=1.0.0.2, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
       <SpecificVersion>False</SpecificVersion>
       <Package>mono.moondesk.viewloader</Package>
@@ -614,6 +611,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Package>mono.moondesk.commands</Package>
     </Reference>
+    <Reference Include="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -652,5 +650,10 @@
       <Project>{6CFA6674-87CD-4186-8E57-78DBBDCBE0A6}</Project>
       <Name>ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="appmanifest.xaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ApplicationDefinition>
   </ItemGroup>
 </Project>

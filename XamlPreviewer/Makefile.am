@@ -105,7 +105,7 @@ FILES =  \
 	Main.cs \
 	MainWindow.cs 
 
-DATA_FILES = 
+DATA_FILES = appmanifest.xaml
 
 RESOURCES = gtk-gui/gui.stetic 
 
@@ -119,7 +119,7 @@ REFERENCES =  \
 	-pkg:glade-sharp-2.0 \
 	-pkg:glib-sharp-2.0 \
 	-pkg:gtk-sharp-2.0 \
-	-pkg:gtksourceview-sharp-2.0 \
+	-pkg:gtksourceview2-sharp \
 	-pkg:mono.moondesk.commands \
 	-pkg:mono.moondesk.moonwindow \
 	-pkg:mono.moondesk.viewloader \
