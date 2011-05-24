@@ -4,6 +4,6 @@
  RuntimeVersion="4.0.0.0"
  EntryPointAssembly="XamlPreviewer"
  EntryPointType="XamlPreviewer.MainClass">
- <Deploylment.Parts>
+ <Deployment.Parts>
  </Deployment.Parts>
 </Deployment>
