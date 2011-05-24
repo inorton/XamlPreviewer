@@ -4,12 +4,18 @@
              >
   <UserControl.Resources>
     <sys:String x:Key="buttonText">Click Me</sys:String>
+    <sys:Object x:Key="obj"/>
   </UserControl.Resources>
-
 
   <StackPanel Margin="10">
     <TextBlock Text="Hello World"/>
-    <Button Content="{StaticResource buttonText}" Margin="4" Padding="12">
+    <Button Margin="4" Padding="12" DataContext="{StaticResource buttonText}">
+	<Button.Content>
+		<StackPanel Orientation="Horizontal">
+			<TextBlock Text="{Binding}"/>
+			<TextBlock Text="{Binding Path=Length}" Padding="24,0,0,0"/>
+		</StackPanel>
+	</Button.Content>
       <Button.Effect>
          <DropShadowEffect ShadowDepth="2" BlurRadius="5"/>
       </Button.Effect>

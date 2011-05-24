@@ -81,8 +81,7 @@ public partial class MainWindow : Gtk.Window
 		}
 			
 		src = tmp;
-		
-		Console.Error.WriteLine(src);
+
 		Gtk.Application.Invoke( this, new EventArgs(), delegate {
 			try {
         var view = System.Windows.Markup.XamlReader.LoadWithInitialTemplateValidation( src ) as System.Windows.FrameworkElement;
