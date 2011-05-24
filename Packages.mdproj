@@ -12,6 +12,16 @@
             <RootEntry path="XamlPreviewer\XamlPreviewer.csproj" />
           </Builder>
         </Package>
+        <Package name="Source Tarball">
+          <Builder TargetDirectory="." DefaultConfiguration="Debug" ctype="TarballDeployTarget">
+            <ChildEntries>
+              <SolutionItemReference path="XamlPreviewer\XamlPreviewer.csproj" />
+              <SolutionItemReference path="Views\Views.csproj" />
+              <SolutionItemReference path="ViewModels\ViewModels.csproj" />
+            </ChildEntries>
+            <RootEntry path="XamlPreviewer.sln" id=":root:" />
+          </Builder>
+        </Package>
       </Packages>
     </Packages>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
