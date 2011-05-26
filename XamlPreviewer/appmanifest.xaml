@@ -1,9 +1,0 @@
-<Deployment
- xmlns="http://schemas.microsoft.com/client/2007/deployment"
- xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
- RuntimeVersion="4.0.0.0"
- EntryPointAssembly="XamlPreviewer"
- EntryPointType="XamlPreviewer.MainClass">
- <Deployment.Parts>
- </Deployment.Parts>
-</Deployment>

@@ -13,7 +13,10 @@ namespace XamlPreviewer
 		public static void Main (string[] args)
 		{
 			Gtk.Application.Init ();
-			MoonlightRuntime.Init ();
+      MoonlightRuntime.Init ();
+
+      var asm = System.Reflection.Assembly.LoadFile("/usr/local/lib/mono/moonlight/System.Windows.Controls.dll" );
+      System.Windows.Deployment.PreloadDesktopAssemblies.Add( asm );
 
       var mw = new MoonArea();
       mw.Content = new System.Windows.Controls.TextBlock(){ Text = "Loading..." };

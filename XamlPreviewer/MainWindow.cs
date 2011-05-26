@@ -28,7 +28,9 @@ public partial class MainWindow : Gtk.Window
 		sb = new SourceBuffer ( lang );
 		sb.HighlightSyntax = true;
 		sb.HighlightMatchingBrackets = true;
-		
+
+    
+
 		sv = new SourceView (sb);
 		scrolledwindow1.Add (sv);
 
