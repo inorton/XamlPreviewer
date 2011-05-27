@@ -8,8 +8,13 @@
     <Packages>
       <Packages>
         <Package name="Linux Binaries">
-          <Builder targetFile="XamlPreviewer\XamlPreviewer.tar.gz" platform="Linux" configuration="Debug|x86" ctype="BinariesZipPackageBuilder">
-            <RootEntry path="XamlPreviewer\XamlPreviewer.csproj" />
+          <Builder targetFile="xamlpreviewer-bin.tar.gz" platform="Linux" configuration="Debug|x86" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="XamlPreviewer\XamlPreviewer.csproj" />
+              <SolutionItemReference path="Views\Views.csproj" />
+              <SolutionItemReference path="ViewModels\ViewModels.csproj" />
+            </ChildEntries>
+            <RootEntry path="XamlPreviewer.sln" id=":root:" />
           </Builder>
         </Package>
         <Package name="Source Tarball">
@@ -26,5 +31,6 @@
     </Packages>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ReleaseVersion>0.2.1</ReleaseVersion>
   </PropertyGroup>
 </Project>

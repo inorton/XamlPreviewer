@@ -6,6 +6,8 @@ using Mono.MoonDesk;
 using System.Windows;
 using System.Collections.Generic;
 
+using Mono.Options;
+
 using ViewModels;
 
 namespace XamlPreviewer
@@ -14,13 +16,42 @@ namespace XamlPreviewer
 	{
 		public static void Main (string[] args)
 		{
+      var libs = new List<Assembly>();
+      var opts = new OptionSet();
+      opts.Add( "r=", "load extra {ASSEMBLY}",
+        x => {
+          try {
+              libs.Add( System.Reflection.Assembly.LoadFile(x) );
+            } catch ( System.IO.FileNotFoundException ){
+              Console.Error.WriteLine("Error: no such assembly file " + x );
+              System.Environment.Exit(1);
+            } catch ( Exception e ){
+              Console.Error.WriteLine("Error: " + e.Message );
+              System.Environment.Exit(1);
+            }
+          } );
+      opts.Add( "help","print this message",
+        x => {
+          Console.WriteLine("Usage: xamlpreviewer [OPTIONS] [FILE.xaml]");
+          Console.WriteLine();
+          opts.WriteOptionDescriptions(Console.Out);
+          Console.WriteLine();
+          System.Environment.Exit(1);
+          } );
+
+      var remain = opts.Parse( args );
+      string file = null;
+      if ( remain.Count > 0 ) file = remain[0];
+
+      Start( file, libs );
+    }
+
+
+    static void Start( string loadxaml, IEnumerable<Assembly> libs )
+    {
 			Gtk.Application.Init ();
 
-      var asm = System.Reflection.Assembly.LoadFile("/usr/local/lib/mono/moonlight/System.Windows.Controls.dll" );
-
-      MoonBase.Init( new List<Assembly> { asm } );
-
-      System.Windows.Deployment.PreloadDesktopAssemblies.Add( asm );
+      MoonBase.Init( libs );
 
       var mw = new MoonArea();
       mw.Content = new System.Windows.Controls.TextBlock(){ Text = "Loading..." };
@@ -37,8 +68,17 @@ namespace XamlPreviewer
       win.XpVM = xp.ViewModel;
       mw.Content = xp.View as FrameworkElement;
 
-			if ( args.Length > 0 )
-				win.LoadFile( args[0] );
+			if ( loadxaml != null ){
+        try {
+				  win.LoadFile( loadxaml );
+        } catch ( Exception e ) {
+          xp.ViewModel.UserContent = new System.Windows.Controls.TextBlock()
+            { Text = String.Format("Error\n\n{0}", e.Message ),
+              Padding = new System.Windows.Thickness(10.0),
+              FontStyle = System.Windows.FontStyles.Italic };
+        }
+
+      }
 			
 			Gtk.Application.Run ();
 		}
