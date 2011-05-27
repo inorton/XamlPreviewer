@@ -599,19 +599,19 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Moonlight.Gtk, Version=3.0.0.0, Culture=neutral, PublicKeyToken=976ad8f3443f9a4d" />
-    <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
-      <SpecificVersion>False</SpecificVersion>
-      <Package>mono.moondesk.viewloader</Package>
-    </Reference>
-    <Reference Include="Mono.MoonDesk.MoonWindow, Version=1.0.4148.18739, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
-      <SpecificVersion>False</SpecificVersion>
-      <Package>mono.moondesk.moonwindow</Package>
-    </Reference>
-    <Reference Include="Mono.MoonDesk.Commands, Version=1.0.4148.18740, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
-      <SpecificVersion>False</SpecificVersion>
-      <Package>mono.moondesk.commands</Package>
-    </Reference>
     <Reference Include="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="Mono.MoonDesk.Commands, Version=1.0.4164.14519, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
+      <Package>mono.moondesk.commands</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.MoonDesk.MoonBase, Version=1.0.4164.22928, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
+      <Package>mono.moondesk.moonbase</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.MoonDesk.ViewLoader, Version=1.0.4164.14518, Culture=neutral, PublicKeyToken=5d2e4455728fa780">
+      <Package>mono.moondesk.viewloader</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">

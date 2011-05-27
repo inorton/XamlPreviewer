@@ -1,8 +1,10 @@
 using System;
+using System.Reflection;
 using Gtk;
 using Moonlight.Gtk;
 using Mono.MoonDesk;
 using System.Windows;
+using System.Collections.Generic;
 
 using ViewModels;
 
@@ -13,9 +15,11 @@ namespace XamlPreviewer
 		public static void Main (string[] args)
 		{
 			Gtk.Application.Init ();
-      MoonlightRuntime.Init ();
 
       var asm = System.Reflection.Assembly.LoadFile("/usr/local/lib/mono/moonlight/System.Windows.Controls.dll" );
+
+      MoonBase.Init( new List<Assembly> { asm } );
+
       System.Windows.Deployment.PreloadDesktopAssemblies.Add( asm );
 
       var mw = new MoonArea();
