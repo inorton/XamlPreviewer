@@ -4,7 +4,6 @@
              >
   <UserControl.Resources>
     <sys:String x:Key="buttonText">Click Me</sys:String>
-    <sys:Object x:Key="obj"/>
   </UserControl.Resources>
 
   <StackPanel Margin="10">
