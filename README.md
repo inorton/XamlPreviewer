@@ -10,6 +10,11 @@ XamlPreviewer is rather like XamlPad for mono/linux. Built on top of moonlight y
 Building
 --------
 
+XamlPreviewer has been tested using mono 2.11 and moonlight 4 (beta) on debian and ubuntu. For best results, 
+build your own mono and moonlight from github.
+
+XamlPreviewer requires MoonBase ( https://github.com/inorton/MoonBase )
+
 You can either build using monodevelop / xbuild or by using mdtool. One useful way
 is to use mdtool to generate makefiles like so:
 
