@@ -1,3 +1,11 @@
+XamlPreviewer (c) 2011 Ian Norton <inorton-at-gmail>
+
+About
+------
+
+XamlPreviewer is rather like XamlPad for mono/linux. Built on top of moonlight you can view and edit Xaml files. 
+
+<img src="https://github.com/inorton/XamlPreviewer/raw/master/screenshots/xpv-0.2.1.png" alt="Screenshot"/>
 
 Building
 --------
