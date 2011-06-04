@@ -19,20 +19,20 @@ namespace XamlPreviewer
       var libs = new List<Assembly>();
       var opts = new OptionSet();
 
-      if ( MoonBase.CanPreloadDesktopAssemblies ){
-        opts.Add( "r=", "load extra {ASSEMBLY}",
-          x => {
-            try {
-                libs.Add( System.Reflection.Assembly.LoadFile(x) );
-              } catch ( System.IO.FileNotFoundException ){
-                Console.Error.WriteLine("Error: no such assembly file " + x );
-                System.Environment.Exit(1);
-              } catch ( Exception e ){
-                Console.Error.WriteLine("Error: " + e.Message );
-                System.Environment.Exit(1);
-              }
-            } );
-      }
+
+      opts.Add( "r=", "load extra {ASSEMBLY}",
+        x => {
+          try {
+              libs.Add( System.Reflection.Assembly.LoadFile(x) );
+            } catch ( System.IO.FileNotFoundException ){
+              Console.Error.WriteLine("Error: no such assembly file " + x );
+              System.Environment.Exit(1);
+            } catch ( Exception e ){
+              Console.Error.WriteLine("Error: " + e.Message );
+              System.Environment.Exit(1);
+            }
+          } );
+
 
       opts.Add( "help","print this message",
         x => {
@@ -54,11 +54,10 @@ namespace XamlPreviewer
     static void Start( string loadxaml, IEnumerable<Assembly> libs )
     {
 			Gtk.Application.Init ();
-      if ( MoonBase.CanPreloadDesktopAssemblies ) {
-        MoonBase.Init( libs );
-      } else {
-        MoonBase.Init();
-      }
+      MoonBase.Init();
+
+      foreach ( var lib in libs )
+        MoonBase.Assemblies.Add( lib );
 
       var mw = new MoonArea();
       mw.Content = new System.Windows.Controls.TextBlock(){ Text = "Loading..." };

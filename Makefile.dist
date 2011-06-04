@@ -1,0 +1,7 @@
+all:
+		mdtool generate-makefiles -d:Debug XamlPreviewer.sln
+		./autogen.sh
+		make
+
+install: all
+		make install

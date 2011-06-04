@@ -49,6 +49,6 @@ Global
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = XamlPreviewer\XamlPreviewer.csproj
 		description = "Xaml Viewer and Editor for Moonlight, "
-		version = 0.2.1
+		version = 0.2.2
 	EndGlobalSection
 EndGlobal
