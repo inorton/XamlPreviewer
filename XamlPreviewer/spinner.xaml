@@ -1,0 +1,215 @@
+<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:core="clr-namespace:System;assembly=mscorlib"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+   pure xaml spinner for moonlight and silverlight
+
+   derived mainly from http://www.blackspike.com/site/silverlight/silverlight-spinner
+    -->
+    <UserControl.Resources>
+        <core:Double x:Key="full">1.0</core:Double>
+        <core:Double x:Key="bright">0.5</core:Double>
+        <core:Double x:Key="mid">0.25</core:Double>
+        <core:Double x:Key="dim">0.1</core:Double>
+        
+        <core:String x:Key="Key0">00:00:00.0</core:String>
+        <core:String x:Key="Key1">00:00:00.1</core:String>
+        <core:String x:Key="Key2">00:00:00.2</core:String>
+        <core:String x:Key="Key3">00:00:00.3</core:String>
+        <core:String x:Key="Key4">00:00:00.4</core:String>
+        <core:String x:Key="Key5">00:00:00.5</core:String>
+        <core:String x:Key="Key6">00:00:00.6</core:String>
+        <core:String x:Key="Key7">00:00:00.7</core:String>
+        <core:String x:Key="Key8">00:00:00.8</core:String>
+        <core:String x:Key="Key9">00:00:00.9</core:String>
+        <core:String x:Key="Key10">00:00:01.0</core:String>
+        <core:String x:Key="Key11">00:00:01.1</core:String>
+    </UserControl.Resources>
+    
+    <Canvas x:Name="spinner_outer" HorizontalAlignment="Center" Width="24" Height="24" VerticalAlignment="Top" Background="Gray">
+        <Canvas.RenderTransform> 
+            <ScaleTransform ScaleX="2" ScaleY="2"/>
+        </Canvas.RenderTransform>
+         
+        
+        <Canvas.Triggers> 
+            <EventTrigger RoutedEvent="ContentControl.Loaded"> 
+                <BeginStoryboard> 
+                    <Storyboard x:Name="spinner" RepeatBehavior="ForEver">
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect01" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key0}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource bright}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key2}" Value="{StaticResource mid}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key3}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect12" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key0}" Value="{StaticResource bright}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource mid}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key2}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key10}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key11}" Value="{StaticResource full}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect11" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key0}" Value="{StaticResource mid}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key9}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key10}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key11}" Value="{StaticResource bright}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect02" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key4}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect03" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key2}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key5}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect04" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key2}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key3}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key6}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect05" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key3}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key4}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key7}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect06" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key4}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key5}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key8}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect07" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key5}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key6}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key9}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect08" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key6}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key7}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key10}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect09" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key7}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key8}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key11}" Value="{StaticResource dim}"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rect10" Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key1}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key8}" Value="{StaticResource dim}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key9}" Value="{StaticResource full}"/>
+                            <EasingDoubleKeyFrame KeyTime="{StaticResource Key11}" Value="{StaticResource mid}"/>
+                        </DoubleAnimationUsingKeyFrames>                    
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Canvas.Triggers>
+         
+        <Canvas Height="24" Width="24">
+            <Rectangle x:Name="rect01" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="30" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect02" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="60" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect03" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="90" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect04" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="120" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect05" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="150" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect06" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="180" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect07" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="210" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect08" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="240" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect09" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="270" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect10" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="300" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect11" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="330" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rect12" Fill="White" Height="5" Width="2" Opacity="{StaticResource dim}" Canvas.Left="11" Canvas.Top="9" RadiusX="1" RadiusY="1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="0" Y="-7"/>
+                        <RotateTransform Angle="360" CenterX="1" CenterY="3"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+    </Canvas>
+</UserControl>
