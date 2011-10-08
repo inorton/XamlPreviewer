@@ -1,12 +1,15 @@
 <UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="300"
+	     xmlns:c="clr-namespace:System.Windows.Controls"
              >
   <UserControl.Resources>
     <sys:String x:Key="buttonText">Click Me</sys:String>
   </UserControl.Resources>
 
+
   <StackPanel Margin="10">
+
     <TextBlock Text="Hello World"/>
     <Button Margin="4" Padding="12" DataContext="{StaticResource buttonText}">
 	<Button.Content>
@@ -31,7 +34,7 @@
       </ComboBox.Items>
     </ComboBox>
 
-
+    <c:DatePicker Margin="8"/>
 
   </StackPanel>
 
