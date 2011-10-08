@@ -19,7 +19,7 @@ namespace ViewModels
           value.DataContext = new Object();
         }
         _userContent = value;
-        OnPropertyChanged("UserContent");
+        NotifyPropertyChanged("UserContent");
       }
     }
 
@@ -30,8 +30,8 @@ namespace ViewModels
       }
       set {
         _scaleValue = value;
-        OnPropertyChanged("ScaleValue");
-        OnPropertyChanged("ScalePercent");
+        NotifyPropertyChanged("ScaleValue");
+        NotifyPropertyChanged("ScalePercent");
       }
     }
 
